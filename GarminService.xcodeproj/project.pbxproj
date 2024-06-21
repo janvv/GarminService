@@ -1,0 +1,1044 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 54;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3D77C6822C22F64D00E8D4D9 /* GarminService+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D77C6812C22F64D00E8D4D9 /* GarminService+UI.swift */; };
+		3D77C6842C22F95C00E8D4D9 /* GarminServiceKitUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77C6832C22F95C00E8D4D9 /* GarminServiceKitUI.h */; };
+		3D77C6862C22FB6A00E8D4D9 /* GarminServiceKitPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77C6852C22FB6A00E8D4D9 /* GarminServiceKitPlugin.h */; };
+		3D77C6882C22FB8000E8D4D9 /* GarminServiceKitPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D77C6872C22FB8000E8D4D9 /* GarminServiceKitPlugin.swift */; };
+		3D77C6ED2C22FE9400E8D4D9 /* GarminServiceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D77C6652C20E0F000E8D4D9 /* GarminServiceKit.framework */; };
+		3D77C6F12C22FE9B00E8D4D9 /* GarminServiceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D77C6652C20E0F000E8D4D9 /* GarminServiceKit.framework */; };
+		3D77C6F62C22FF7200E8D4D9 /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B007B222BD6FF7000131DE /* LocalizedString.swift */; };
+		3D77C6F72C22FF7200E8D4D9 /* GarminService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D77C6402C1F966300E8D4D9 /* GarminService.swift */; };
+		3D77C6FD2C24C2FA00E8D4D9 /* LoopKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D77C6FC2C24C2FA00E8D4D9 /* LoopKit.framework */; };
+		3D77C7002C24C30100E8D4D9 /* LoopKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D77C6FF2C24C30100E8D4D9 /* LoopKitUI.framework */; };
+		3D77C7072C24CBD100E8D4D9 /* GarminServiceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D77C7062C24CBD100E8D4D9 /* GarminServiceTableViewController.swift */; };
+		3D77C70B2C24D95F00E8D4D9 /* LoopKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D77C70A2C24D95F00E8D4D9 /* LoopKit.framework */; };
+		A99C714023396D6200AB9035 /* OSLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C62DA32331CAD400535612 /* OSLog.swift */; };
+		A9B007B422BD6FF7000131DE /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B007B222BD6FF7000131DE /* LocalizedString.swift */; };
+		A9B007C022BD7130000131DE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A9B007BE22BD7130000131DE /* Localizable.strings */; };
+		A9C62DA52331CAE200535612 /* OSLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C62DA32331CAD400535612 /* OSLog.swift */; };
+		A9E4153622BC89A300168E14 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E4153522BC89A300168E14 /* NibLoadable.swift */; };
+		A9E4153822BC89B600168E14 /* IdentifiableClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E4153722BC89B600168E14 /* IdentifiableClass.swift */; };
+		A9E4153B22BC8A3800168E14 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E4153A22BC8A3800168E14 /* UIColor.swift */; };
+		C1C1349D27DD38000097B5AD /* GarminServiceKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A91BAC3A22BC69B500ABF1BB /* GarminServiceKitUI.framework */; };
+		C1E7036625070A0E00DAB534 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1E7036525070A0E00DAB534 /* Assets.xcassets */; };
+		C1E703932507193400DAB534 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E703922507193400DAB534 /* Image.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3D77C6EF2C22FE9400E8D4D9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A91BAC1222BC691A00ABF1BB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3D77C6642C20E0F000E8D4D9;
+			remoteInfo = GarminServiceKit;
+		};
+		3D77C6F32C22FE9B00E8D4D9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A91BAC1222BC691A00ABF1BB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3D77C6642C20E0F000E8D4D9;
+			remoteInfo = GarminServiceKit;
+		};
+		A99C713B23396CF600AB9035 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A91BAC1222BC691A00ABF1BB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A91BAC3922BC69B500ABF1BB;
+			remoteInfo = NightscoutServiceKitUI;
+		};
+		C1C1349F27DD38000097B5AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A91BAC1222BC691A00ABF1BB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A91BAC3922BC69B500ABF1BB;
+			remoteInfo = NightscoutServiceKitUI;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3D77C6402C1F966300E8D4D9 /* GarminService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GarminService.swift; sourceTree = "<group>"; };
+		3D77C6422C1F968700E8D4D9 /* GarminService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GarminService.h; sourceTree = "<group>"; };
+		3D77C6652C20E0F000E8D4D9 /* GarminServiceKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GarminServiceKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D77C6812C22F64D00E8D4D9 /* GarminService+UI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GarminService+UI.swift"; sourceTree = "<group>"; };
+		3D77C6832C22F95C00E8D4D9 /* GarminServiceKitUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GarminServiceKitUI.h; sourceTree = "<group>"; };
+		3D77C6852C22FB6A00E8D4D9 /* GarminServiceKitPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GarminServiceKitPlugin.h; sourceTree = "<group>"; };
+		3D77C6872C22FB8000E8D4D9 /* GarminServiceKitPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GarminServiceKitPlugin.swift; sourceTree = "<group>"; };
+		3D77C6F82C24C2DA00E8D4D9 /* LoopKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LoopKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D77C6FC2C24C2FA00E8D4D9 /* LoopKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LoopKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D77C6FF2C24C30100E8D4D9 /* LoopKitUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LoopKitUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D77C7062C24CBD100E8D4D9 /* GarminServiceTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GarminServiceTableViewController.swift; sourceTree = "<group>"; };
+		3D77C7082C24CF2F00E8D4D9 /* LoopKitUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LoopKitUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D77C70A2C24D95F00E8D4D9 /* LoopKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LoopKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D77C70C2C24D96E00E8D4D9 /* LoopKitUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LoopKitUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A91BAC1F22BC691A00ABF1BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A91BAC3A22BC69B500ABF1BB /* GarminServiceKitUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GarminServiceKitUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A91BAC3D22BC69B500ABF1BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A99C713123396CB100AB9035 /* GarminServiceKitPlugin.loopplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GarminServiceKitPlugin.loopplugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		A99C713423396CB100AB9035 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9B007B222BD6FF7000131DE /* LocalizedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedString.swift; sourceTree = "<group>"; };
+		A9B007BC22BD7120000131DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A9B007BF22BD7130000131DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A9B007D622BD716A000131DE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		A9B007D722BD716B000131DE /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A9B007D822BD716C000131DE /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A9B007D922BD716D000131DE /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A9B007DA22BD716E000131DE /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A9B007DB22BD716F000131DE /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A9B007DC22BD7170000131DE /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A9B007DD22BD7171000131DE /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A9B007DE22BD7171000131DE /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A9B007E022BD7176000131DE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		A9B007E122BD7177000131DE /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A9B007E222BD7179000131DE /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A9B007E322BD717A000131DE /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A9B007E422BD717B000131DE /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A9B007E522BD717C000131DE /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A9B007E622BD717D000131DE /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A9B007E722BD717E000131DE /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A9B007E822BD717F000131DE /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A9C62DA32331CAD400535612 /* OSLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSLog.swift; sourceTree = "<group>"; };
+		A9E4153522BC89A300168E14 /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
+		A9E4153722BC89B600168E14 /* IdentifiableClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifiableClass.swift; sourceTree = "<group>"; };
+		A9E4153A22BC8A3800168E14 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		C121D8D629C7866D00DA0520 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C121D8D729C7866D00DA0520 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C15A582E29C7866600D3A5A1 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C15A582F29C7866600D3A5A1 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C1E7036525070A0E00DAB534 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C1E703922507193400DAB534 /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		C1FAB5C629C786B000D25073 /* hi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hi; path = hi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C1FDCC0E29C786F90056E652 /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C1FDCC0F29C786F90056E652 /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F5D9BFF627DAB4BF002E48F6 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F5D9BFF727DAB4BF002E48F6 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F5D9BFF827DAB509002E48F6 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F5D9BFF927DAB509002E48F6 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F5D9BFFA27DAB517002E48F6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F5D9BFFB27DAB517002E48F6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F5D9BFFC27DAB525002E48F6 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		F5D9BFFD27DAB525002E48F6 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		F5D9BFFE27DAB533002E48F6 /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F5D9BFFF27DAB533002E48F6 /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F5D9C00027DAB53F002E48F6 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F5D9C00127DAB540002E48F6 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F5D9C00227DAB549002E48F6 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F5D9C00327DAB549002E48F6 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F5D9C00427DAB551002E48F6 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F5D9C00527DAB551002E48F6 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F5E0BE2027E1DE720033557E /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F5E0BE2127E1DE720033557E /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/Localizable.strings; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3D77C6622C20E0F000E8D4D9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D77C70B2C24D95F00E8D4D9 /* LoopKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A91BAC3722BC69B500ABF1BB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D77C6F12C22FE9B00E8D4D9 /* GarminServiceKit.framework in Frameworks */,
+				3D77C6FD2C24C2FA00E8D4D9 /* LoopKit.framework in Frameworks */,
+				3D77C7002C24C30100E8D4D9 /* LoopKitUI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A99C712E23396CB100AB9035 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1C1349D27DD38000097B5AD /* GarminServiceKitUI.framework in Frameworks */,
+				3D77C6ED2C22FE9400E8D4D9 /* GarminServiceKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3D77C6EC2C22FE9400E8D4D9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3D77C70C2C24D96E00E8D4D9 /* LoopKitUI.framework */,
+				3D77C70A2C24D95F00E8D4D9 /* LoopKit.framework */,
+				3D77C7082C24CF2F00E8D4D9 /* LoopKitUI.framework */,
+				3D77C6FF2C24C30100E8D4D9 /* LoopKitUI.framework */,
+				3D77C6FC2C24C2FA00E8D4D9 /* LoopKit.framework */,
+				3D77C6F82C24C2DA00E8D4D9 /* LoopKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A91BAC1122BC691A00ABF1BB = {
+			isa = PBXGroup;
+			children = (
+				A9B007AE22BD6FD0000131DE /* Common */,
+				A9C62DA22331CAC200535612 /* Extensions */,
+				A91BAC1D22BC691A00ABF1BB /* GarminServiceKit */,
+				A91BAC3B22BC69B500ABF1BB /* GarminServiceKitUI */,
+				A99C713223396CB100AB9035 /* GarminServiceKitPlugin */,
+				A91BAC1C22BC691A00ABF1BB /* Products */,
+				3D77C6EC2C22FE9400E8D4D9 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A91BAC1C22BC691A00ABF1BB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A91BAC3A22BC69B500ABF1BB /* GarminServiceKitUI.framework */,
+				A99C713123396CB100AB9035 /* GarminServiceKitPlugin.loopplugin */,
+				3D77C6652C20E0F000E8D4D9 /* GarminServiceKit.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A91BAC1D22BC691A00ABF1BB /* GarminServiceKit */ = {
+			isa = PBXGroup;
+			children = (
+				A91BAC1F22BC691A00ABF1BB /* Info.plist */,
+				3D77C6402C1F966300E8D4D9 /* GarminService.swift */,
+				3D77C6422C1F968700E8D4D9 /* GarminService.h */,
+				A9B007BB22BD7120000131DE /* Localizable.strings */,
+			);
+			path = GarminServiceKit;
+			sourceTree = "<group>";
+		};
+		A91BAC3B22BC69B500ABF1BB /* GarminServiceKitUI */ = {
+			isa = PBXGroup;
+			children = (
+				3D77C7062C24CBD100E8D4D9 /* GarminServiceTableViewController.swift */,
+				A9E4153722BC89B600168E14 /* IdentifiableClass.swift */,
+				3D77C6832C22F95C00E8D4D9 /* GarminServiceKitUI.h */,
+				A91BAC3D22BC69B500ABF1BB /* Info.plist */,
+				3D77C6812C22F64D00E8D4D9 /* GarminService+UI.swift */,
+				A9E4153522BC89A300168E14 /* NibLoadable.swift */,
+				C1E7036525070A0E00DAB534 /* Assets.xcassets */,
+				A9E4153922BC8A2C00168E14 /* Extensions */,
+				A9B007BE22BD7130000131DE /* Localizable.strings */,
+			);
+			path = GarminServiceKitUI;
+			sourceTree = "<group>";
+		};
+		A99C713223396CB100AB9035 /* GarminServiceKitPlugin */ = {
+			isa = PBXGroup;
+			children = (
+				3D77C6852C22FB6A00E8D4D9 /* GarminServiceKitPlugin.h */,
+				A99C713423396CB100AB9035 /* Info.plist */,
+				3D77C6872C22FB8000E8D4D9 /* GarminServiceKitPlugin.swift */,
+			);
+			path = GarminServiceKitPlugin;
+			sourceTree = "<group>";
+		};
+		A9B007AE22BD6FD0000131DE /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				A9B007B222BD6FF7000131DE /* LocalizedString.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		A9C62DA22331CAC200535612 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A9C62DA32331CAD400535612 /* OSLog.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A9E4153922BC8A2C00168E14 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C1E703922507193400DAB534 /* Image.swift */,
+				A9E4153A22BC8A3800168E14 /* UIColor.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		3D77C6602C20E0F000E8D4D9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A91BAC3522BC69B500ABF1BB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D77C6842C22F95C00E8D4D9 /* GarminServiceKitUI.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A99C712C23396CB100AB9035 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D77C6862C22FB6A00E8D4D9 /* GarminServiceKitPlugin.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		3D77C6642C20E0F000E8D4D9 /* GarminServiceKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3D77C6762C20E0F000E8D4D9 /* Build configuration list for PBXNativeTarget "GarminServiceKit" */;
+			buildPhases = (
+				3D77C6602C20E0F000E8D4D9 /* Headers */,
+				3D77C6612C20E0F000E8D4D9 /* Sources */,
+				3D77C6622C20E0F000E8D4D9 /* Frameworks */,
+				3D77C6632C20E0F000E8D4D9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GarminServiceKit;
+			packageProductDependencies = (
+			);
+			productName = GarminService;
+			productReference = 3D77C6652C20E0F000E8D4D9 /* GarminServiceKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A91BAC3922BC69B500ABF1BB /* GarminServiceKitUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A91BAC4B22BC69B500ABF1BB /* Build configuration list for PBXNativeTarget "GarminServiceKitUI" */;
+			buildPhases = (
+				A91BAC3522BC69B500ABF1BB /* Headers */,
+				A91BAC3622BC69B500ABF1BB /* Sources */,
+				A91BAC3722BC69B500ABF1BB /* Frameworks */,
+				A91BAC3822BC69B500ABF1BB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3D77C6F42C22FE9B00E8D4D9 /* PBXTargetDependency */,
+			);
+			name = GarminServiceKitUI;
+			packageProductDependencies = (
+			);
+			productName = NightscoutServiceKitUI;
+			productReference = A91BAC3A22BC69B500ABF1BB /* GarminServiceKitUI.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A99C713023396CB100AB9035 /* GarminServiceKitPlugin */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A99C713823396CB100AB9035 /* Build configuration list for PBXNativeTarget "GarminServiceKitPlugin" */;
+			buildPhases = (
+				A99C712C23396CB100AB9035 /* Headers */,
+				A99C712D23396CB100AB9035 /* Sources */,
+				A99C712E23396CB100AB9035 /* Frameworks */,
+				A99C712F23396CB100AB9035 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A99C713C23396CF600AB9035 /* PBXTargetDependency */,
+				C1C134A027DD38000097B5AD /* PBXTargetDependency */,
+				3D77C6F02C22FE9400E8D4D9 /* PBXTargetDependency */,
+			);
+			name = GarminServiceKitPlugin;
+			packageProductDependencies = (
+			);
+			productName = NightscoutServiceKitPlugin;
+			productReference = A99C713123396CB100AB9035 /* GarminServiceKitPlugin.loopplugin */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A91BAC1222BC691A00ABF1BB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = "LoopKit Authors";
+				TargetAttributes = {
+					3D77C6642C20E0F000E8D4D9 = {
+						CreatedOnToolsVersion = 15.4;
+					};
+					A91BAC3922BC69B500ABF1BB = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+					A99C713023396CB100AB9035 = {
+						CreatedOnToolsVersion = 11.0;
+					};
+				};
+			};
+			buildConfigurationList = A91BAC1522BC691A00ABF1BB /* Build configuration list for PBXProject "GarminService" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				"zh-Hans",
+				nl,
+				fr,
+				de,
+				it,
+				nb,
+				pl,
+				ru,
+				es,
+				da,
+				fi,
+				ja,
+				"pt-BR",
+				ro,
+				sv,
+				vi,
+				tr,
+				he,
+				ar,
+				cs,
+				hi,
+				sk,
+			);
+			mainGroup = A91BAC1122BC691A00ABF1BB;
+			packageReferences = (
+			);
+			productRefGroup = A91BAC1C22BC691A00ABF1BB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A91BAC3922BC69B500ABF1BB /* GarminServiceKitUI */,
+				A99C713023396CB100AB9035 /* GarminServiceKitPlugin */,
+				3D77C6642C20E0F000E8D4D9 /* GarminServiceKit */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3D77C6632C20E0F000E8D4D9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A91BAC3822BC69B500ABF1BB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1E7036625070A0E00DAB534 /* Assets.xcassets in Resources */,
+				A9B007C022BD7130000131DE /* Localizable.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A99C712F23396CB100AB9035 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3D77C6612C20E0F000E8D4D9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D77C6F62C22FF7200E8D4D9 /* LocalizedString.swift in Sources */,
+				3D77C6F72C22FF7200E8D4D9 /* GarminService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A91BAC3622BC69B500ABF1BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9E4153822BC89B600168E14 /* IdentifiableClass.swift in Sources */,
+				A9E4153622BC89A300168E14 /* NibLoadable.swift in Sources */,
+				A9B007B422BD6FF7000131DE /* LocalizedString.swift in Sources */,
+				3D77C7072C24CBD100E8D4D9 /* GarminServiceTableViewController.swift in Sources */,
+				C1E703932507193400DAB534 /* Image.swift in Sources */,
+				3D77C6822C22F64D00E8D4D9 /* GarminService+UI.swift in Sources */,
+				A9C62DA52331CAE200535612 /* OSLog.swift in Sources */,
+				A9E4153B22BC8A3800168E14 /* UIColor.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A99C712D23396CB100AB9035 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D77C6882C22FB8000E8D4D9 /* GarminServiceKitPlugin.swift in Sources */,
+				A99C714023396D6200AB9035 /* OSLog.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3D77C6F02C22FE9400E8D4D9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3D77C6642C20E0F000E8D4D9 /* GarminServiceKit */;
+			targetProxy = 3D77C6EF2C22FE9400E8D4D9 /* PBXContainerItemProxy */;
+		};
+		3D77C6F42C22FE9B00E8D4D9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3D77C6642C20E0F000E8D4D9 /* GarminServiceKit */;
+			targetProxy = 3D77C6F32C22FE9B00E8D4D9 /* PBXContainerItemProxy */;
+		};
+		A99C713C23396CF600AB9035 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A91BAC3922BC69B500ABF1BB /* GarminServiceKitUI */;
+			targetProxy = A99C713B23396CF600AB9035 /* PBXContainerItemProxy */;
+		};
+		C1C134A027DD38000097B5AD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			platformFilter = ios;
+			target = A91BAC3922BC69B500ABF1BB /* GarminServiceKitUI */;
+			targetProxy = C1C1349F27DD38000097B5AD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A9B007BB22BD7120000131DE /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9B007BC22BD7120000131DE /* Base */,
+				A9B007D622BD716A000131DE /* zh-Hans */,
+				A9B007D722BD716B000131DE /* nl */,
+				A9B007D822BD716C000131DE /* fr */,
+				A9B007D922BD716D000131DE /* de */,
+				A9B007DA22BD716E000131DE /* it */,
+				A9B007DB22BD716F000131DE /* nb */,
+				A9B007DC22BD7170000131DE /* pl */,
+				A9B007DD22BD7171000131DE /* ru */,
+				A9B007DE22BD7171000131DE /* es */,
+				F5D9BFF627DAB4BF002E48F6 /* da */,
+				F5D9BFF827DAB509002E48F6 /* fi */,
+				F5D9BFFA27DAB517002E48F6 /* ja */,
+				F5D9BFFC27DAB525002E48F6 /* pt-BR */,
+				F5D9BFFE27DAB533002E48F6 /* ro */,
+				F5D9C00027DAB53F002E48F6 /* sv */,
+				F5D9C00227DAB549002E48F6 /* vi */,
+				F5D9C00427DAB551002E48F6 /* tr */,
+				F5E0BE2027E1DE720033557E /* he */,
+				C15A582E29C7866600D3A5A1 /* ar */,
+				C121D8D629C7866D00DA0520 /* cs */,
+				C1FDCC0E29C786F90056E652 /* sk */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		A9B007BE22BD7130000131DE /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9B007BF22BD7130000131DE /* Base */,
+				A9B007E022BD7176000131DE /* zh-Hans */,
+				A9B007E122BD7177000131DE /* nl */,
+				A9B007E222BD7179000131DE /* fr */,
+				A9B007E322BD717A000131DE /* de */,
+				A9B007E422BD717B000131DE /* it */,
+				A9B007E522BD717C000131DE /* nb */,
+				A9B007E622BD717D000131DE /* pl */,
+				A9B007E722BD717E000131DE /* ru */,
+				A9B007E822BD717F000131DE /* es */,
+				F5D9BFF727DAB4BF002E48F6 /* da */,
+				F5D9BFF927DAB509002E48F6 /* fi */,
+				F5D9BFFB27DAB517002E48F6 /* ja */,
+				F5D9BFFD27DAB525002E48F6 /* pt-BR */,
+				F5D9BFFF27DAB533002E48F6 /* ro */,
+				F5D9C00127DAB540002E48F6 /* sv */,
+				F5D9C00327DAB549002E48F6 /* vi */,
+				F5D9C00527DAB551002E48F6 /* tr */,
+				F5E0BE2127E1DE720033557E /* he */,
+				C15A582F29C7866600D3A5A1 /* ar */,
+				C121D8D729C7866D00DA0520 /* cs */,
+				C1FAB5C629C786B000D25073 /* hi */,
+				C1FDCC0F29C786F90056E652 /* sk */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3D77C6772C20E0F000E8D4D9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = EREM5343TQ;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2024 LoopKit Authors. All rights reserved.";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = jw.GarminService;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3D77C6782C20E0F000E8D4D9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = EREM5343TQ;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2024 LoopKit Authors. All rights reserved.";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = jw.GarminService;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A91BAC2D22BC691A00ABF1BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_GCD_PERFORMANCE = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_EMPTY_CONTEXT = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = YES;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_RAND = YES;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_STRCPY = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_ASSIGN_ENUM = YES;
+				CLANG_WARN_ATOMIC_IMPLICIT_SEQ_CST = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES_ERROR;
+				CLANG_WARN_BOOL_CONVERSION = YES_ERROR;
+				CLANG_WARN_COMMA = YES_ERROR;
+				CLANG_WARN_CONSTANT_CONVERSION = YES_ERROR;
+				CLANG_WARN_CXX0X_EXTENSIONS = YES;
+				CLANG_WARN_DELETE_NON_VIRTUAL_DTOR = YES_ERROR;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES_ERROR;
+				CLANG_WARN_FLOAT_CONVERSION = YES_ERROR;
+				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = YES_ERROR;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES_ERROR;
+				CLANG_WARN_MISSING_NOESCAPE = YES_ERROR;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES_ERROR;
+				CLANG_WARN_OBJC_EXPLICIT_OWNERSHIP_TYPE = YES;
+				CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_INTERFACE_IVARS = YES_ERROR;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES_ERROR;
+				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = YES;
+				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = YES_AGGRESSIVE;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_PRAGMA_PACK = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_SEMICOLON_BEFORE_METHOD_BODY = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES_AGGRESSIVE;
+				CLANG_WARN_VEXING_PARSE = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CLANG_WARN__EXIT_TIME_DESTRUCTORS = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
+				GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES_ERROR;
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_POINTER_SIGNEDNESS = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_FOUR_CHARACTER_CONSTANTS = YES;
+				GCC_WARN_HIDDEN_VIRTUAL_FUNCTIONS = YES;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
+				GCC_WARN_NON_VIRTUAL_DESTRUCTOR = YES;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_STRICT_SELECTOR_MATCH = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_PARAMETER = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				LOCALIZED_STRING_MACRO_NAMES = (
+					NSLocalizedString,
+					CFLocalizedString,
+					LocalizedString,
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WARNING_CFLAGS = "-Wall";
+			};
+			name = Debug;
+		};
+		A91BAC2E22BC691A00ABF1BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_GCD_PERFORMANCE = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_EMPTY_CONTEXT = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = YES;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_RAND = YES;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_STRCPY = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_ASSIGN_ENUM = YES;
+				CLANG_WARN_ATOMIC_IMPLICIT_SEQ_CST = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES_ERROR;
+				CLANG_WARN_BOOL_CONVERSION = YES_ERROR;
+				CLANG_WARN_COMMA = YES_ERROR;
+				CLANG_WARN_CONSTANT_CONVERSION = YES_ERROR;
+				CLANG_WARN_CXX0X_EXTENSIONS = YES;
+				CLANG_WARN_DELETE_NON_VIRTUAL_DTOR = YES_ERROR;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES_ERROR;
+				CLANG_WARN_FLOAT_CONVERSION = YES_ERROR;
+				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = YES_ERROR;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES_ERROR;
+				CLANG_WARN_MISSING_NOESCAPE = YES_ERROR;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES_ERROR;
+				CLANG_WARN_OBJC_EXPLICIT_OWNERSHIP_TYPE = YES;
+				CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_INTERFACE_IVARS = YES_ERROR;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES_ERROR;
+				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = YES;
+				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = YES_AGGRESSIVE;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_PRAGMA_PACK = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_SEMICOLON_BEFORE_METHOD_BODY = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES_AGGRESSIVE;
+				CLANG_WARN_VEXING_PARSE = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CLANG_WARN__EXIT_TIME_DESTRUCTORS = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
+				GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES_ERROR;
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_POINTER_SIGNEDNESS = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_FOUR_CHARACTER_CONSTANTS = YES;
+				GCC_WARN_HIDDEN_VIRTUAL_FUNCTIONS = YES;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
+				GCC_WARN_NON_VIRTUAL_DESTRUCTOR = YES;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_STRICT_SELECTOR_MATCH = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_PARAMETER = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				LOCALIZED_STRING_MACRO_NAMES = (
+					NSLocalizedString,
+					CFLocalizedString,
+					LocalizedString,
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WARNING_CFLAGS = "-Wall";
+			};
+			name = Release;
+		};
+		A91BAC4C22BC69B500ABF1BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = GarminServiceKitUI/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.loopkit.GarminServiceKitUI;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A91BAC4D22BC69B500ABF1BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = GarminServiceKitUI/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.loopkit.GarminServiceKitUI;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A99C713623396CB100AB9035 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = GarminServiceKitPlugin/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.loopkit.GarminServiceKitPlugin;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = loopplugin;
+			};
+			name = Debug;
+		};
+		A99C713723396CB100AB9035 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = GarminServiceKitPlugin/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.loopkit.GarminServiceKitPlugin;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = loopplugin;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3D77C6762C20E0F000E8D4D9 /* Build configuration list for PBXNativeTarget "GarminServiceKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3D77C6772C20E0F000E8D4D9 /* Debug */,
+				3D77C6782C20E0F000E8D4D9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A91BAC1522BC691A00ABF1BB /* Build configuration list for PBXProject "GarminService" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A91BAC2D22BC691A00ABF1BB /* Debug */,
+				A91BAC2E22BC691A00ABF1BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A91BAC4B22BC69B500ABF1BB /* Build configuration list for PBXNativeTarget "GarminServiceKitUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A91BAC4C22BC69B500ABF1BB /* Debug */,
+				A91BAC4D22BC69B500ABF1BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A99C713823396CB100AB9035 /* Build configuration list for PBXNativeTarget "GarminServiceKitPlugin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A99C713623396CB100AB9035 /* Debug */,
+				A99C713723396CB100AB9035 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A91BAC1222BC691A00ABF1BB /* Project object */;
+}

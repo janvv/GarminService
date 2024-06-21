@@ -1,0 +1,15 @@
+/* Confirmation message for deleting a service */
+"Are you sure you want to delete this service?" = "Вы уверены, что хотите удалить этот сервис?";
+
+/* The title of the cancel action in an action sheet */
+"Cancel" = "Отмена";
+
+/* The title of the Loggly customer token */
+"Customer Token" = "Токен пользователя";
+
+/* Button title to delete a service */
+"Delete Service" = "Удалить сервис";
+
+/* The default placeholder for required text */
+"Required" = "обязательный";
+
