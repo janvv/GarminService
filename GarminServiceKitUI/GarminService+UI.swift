@@ -30,15 +30,4 @@ extension GarminService: ServiceUI {
     }
     
     
-    public func completeCreate() {
-        print("completeCreate")
-    }
-    
-    public func completeDelete() {
-        print("completeDelete")
-    }
-    
-    public func completeUpdate() {
-        print("completeUpdate")
-    }
 }

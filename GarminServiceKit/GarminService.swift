@@ -29,7 +29,7 @@ public final class GarminService: Service {
     public var isOnboarded: Bool
 
     public init() {
-        self.isOnboarded = false
+        self.isOnboarded = true
     }
 
     public required init?(rawState: RawStateValue) {
@@ -41,6 +41,27 @@ public final class GarminService: Service {
             "isOnboarded": isOnboarded,
         ]
     }
+    
+    public func completeCreate() {
+        print("GarminService.completeCreate")
+        //try! KeychainManager().setLogglyCustomerToken(customerToken)
+        //createClient()
+    }
+
+    public func completeUpdate() {
+        print("GarminService.completeUpdate")
+        //try! KeychainManager().setLogglyCustomerToken(customerToken)
+        //createClient()
+        serviceDelegate?.serviceDidUpdateState(self)
+    }
+
+    public func completeDelete() {
+        //try! KeychainManager().setLogglyCustomerToken()
+        print("GarminService.completeDelete")
+        serviceDelegate?.serviceWantsDeletion(self)
+        
+    }
+    
     
 }
 
@@ -71,7 +92,7 @@ extension GarminService: RemoteDataService {
     }
     
     public func uploadGlucoseData(_ stored: [LoopKit.StoredGlucoseSample], completion: @escaping (Result<Bool, any Error>) -> Void) {
-        print("GarminService.uploadGlucoseData")
+        print("\(Date()):GarminService.uploadGlucoseData")
         completion(.success(true))
         return
     }
