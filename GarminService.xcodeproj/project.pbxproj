@@ -11,14 +11,18 @@
 		3D77C6842C22F95C00E8D4D9 /* GarminServiceKitUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77C6832C22F95C00E8D4D9 /* GarminServiceKitUI.h */; };
 		3D77C6862C22FB6A00E8D4D9 /* GarminServiceKitPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77C6852C22FB6A00E8D4D9 /* GarminServiceKitPlugin.h */; };
 		3D77C6882C22FB8000E8D4D9 /* GarminServiceKitPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D77C6872C22FB8000E8D4D9 /* GarminServiceKitPlugin.swift */; };
-		3D77C6ED2C22FE9400E8D4D9 /* GarminServiceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D77C6652C20E0F000E8D4D9 /* GarminServiceKit.framework */; };
-		3D77C6F12C22FE9B00E8D4D9 /* GarminServiceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D77C6652C20E0F000E8D4D9 /* GarminServiceKit.framework */; };
 		3D77C6F62C22FF7200E8D4D9 /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B007B222BD6FF7000131DE /* LocalizedString.swift */; };
 		3D77C6F72C22FF7200E8D4D9 /* GarminService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D77C6402C1F966300E8D4D9 /* GarminService.swift */; };
-		3D77C6FD2C24C2FA00E8D4D9 /* LoopKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D77C6FC2C24C2FA00E8D4D9 /* LoopKit.framework */; };
 		3D77C7002C24C30100E8D4D9 /* LoopKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D77C6FF2C24C30100E8D4D9 /* LoopKitUI.framework */; };
 		3D77C7072C24CBD100E8D4D9 /* GarminServiceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D77C7062C24CBD100E8D4D9 /* GarminServiceTableViewController.swift */; };
 		3D77C70B2C24D95F00E8D4D9 /* LoopKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D77C70A2C24D95F00E8D4D9 /* LoopKit.framework */; };
+		3D81271F2C2A01F700F433FF /* GarminServiceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D77C6652C20E0F000E8D4D9 /* GarminServiceKit.framework */; };
+		3D8127202C2A01F700F433FF /* GarminServiceKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3D77C6652C20E0F000E8D4D9 /* GarminServiceKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3D8127222C2A01F900F433FF /* GarminServiceKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A91BAC3A22BC69B500ABF1BB /* GarminServiceKitUI.framework */; };
+		3D8127232C2A01F900F433FF /* GarminServiceKitUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A91BAC3A22BC69B500ABF1BB /* GarminServiceKitUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3D8127242C2A025800F433FF /* GarminServiceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D77C6652C20E0F000E8D4D9 /* GarminServiceKit.framework */; };
+		3D8127272C2A025A00F433FF /* LoopKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D77C6FC2C24C2FA00E8D4D9 /* LoopKit.framework */; };
+		3D9DD6C42C3C20EA00B0B83F /* ConnectIQ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D9DD6C32C3C20EA00B0B83F /* ConnectIQ.framework */; platformFilter = ios; };
 		A99C714023396D6200AB9035 /* OSLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C62DA32331CAD400535612 /* OSLog.swift */; };
 		A9B007B422BD6FF7000131DE /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B007B222BD6FF7000131DE /* LocalizedString.swift */; };
 		A9B007C022BD7130000131DE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A9B007BE22BD7130000131DE /* Localizable.strings */; };
@@ -26,7 +30,6 @@
 		A9E4153622BC89A300168E14 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E4153522BC89A300168E14 /* NibLoadable.swift */; };
 		A9E4153822BC89B600168E14 /* IdentifiableClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E4153722BC89B600168E14 /* IdentifiableClass.swift */; };
 		A9E4153B22BC8A3800168E14 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E4153A22BC8A3800168E14 /* UIColor.swift */; };
-		C1C1349D27DD38000097B5AD /* GarminServiceKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A91BAC3A22BC69B500ABF1BB /* GarminServiceKitUI.framework */; };
 		C1E7036625070A0E00DAB534 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1E7036525070A0E00DAB534 /* Assets.xcassets */; };
 		C1E703932507193400DAB534 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E703922507193400DAB534 /* Image.swift */; };
 /* End PBXBuildFile section */
@@ -62,6 +65,21 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		3D8127212C2A01F700F433FF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3D8127202C2A01F700F433FF /* GarminServiceKit.framework in Embed Frameworks */,
+				3D8127232C2A01F900F433FF /* GarminServiceKitUI.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		3D77C6402C1F966300E8D4D9 /* GarminService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GarminService.swift; sourceTree = "<group>"; };
 		3D77C6422C1F968700E8D4D9 /* GarminService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GarminService.h; sourceTree = "<group>"; };
@@ -77,6 +95,7 @@
 		3D77C7082C24CF2F00E8D4D9 /* LoopKitUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LoopKitUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D77C70A2C24D95F00E8D4D9 /* LoopKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LoopKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D77C70C2C24D96E00E8D4D9 /* LoopKitUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LoopKitUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D9DD6C32C3C20EA00B0B83F /* ConnectIQ.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ConnectIQ.framework; sourceTree = "<group>"; };
 		A91BAC1F22BC691A00ABF1BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A91BAC3A22BC69B500ABF1BB /* GarminServiceKitUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GarminServiceKitUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A91BAC3D22BC69B500ABF1BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -141,6 +160,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D9DD6C42C3C20EA00B0B83F /* ConnectIQ.framework in Frameworks */,
 				3D77C70B2C24D95F00E8D4D9 /* LoopKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -149,9 +169,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D77C6F12C22FE9B00E8D4D9 /* GarminServiceKit.framework in Frameworks */,
-				3D77C6FD2C24C2FA00E8D4D9 /* LoopKit.framework in Frameworks */,
 				3D77C7002C24C30100E8D4D9 /* LoopKitUI.framework in Frameworks */,
+				3D8127272C2A025A00F433FF /* LoopKit.framework in Frameworks */,
+				3D8127242C2A025800F433FF /* GarminServiceKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,8 +179,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C1C1349D27DD38000097B5AD /* GarminServiceKitUI.framework in Frameworks */,
-				3D77C6ED2C22FE9400E8D4D9 /* GarminServiceKit.framework in Frameworks */,
+				3D81271F2C2A01F700F433FF /* GarminServiceKit.framework in Frameworks */,
+				3D8127222C2A01F900F433FF /* GarminServiceKitUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,6 +190,7 @@
 		3D77C6EC2C22FE9400E8D4D9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3D9DD6C32C3C20EA00B0B83F /* ConnectIQ.framework */,
 				3D77C70C2C24D96E00E8D4D9 /* LoopKitUI.framework */,
 				3D77C70A2C24D95F00E8D4D9 /* LoopKit.framework */,
 				3D77C7082C24CF2F00E8D4D9 /* LoopKitUI.framework */,
@@ -343,6 +364,7 @@
 				A99C712D23396CB100AB9035 /* Sources */,
 				A99C712E23396CB100AB9035 /* Frameworks */,
 				A99C712F23396CB100AB9035 /* Resources */,
+				3D8127212C2A01F700F433FF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -598,13 +620,17 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_MODULE_VERIFIER = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2024 LoopKit Authors. All rights reserved.";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -652,12 +678,16 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_MODULE_VERIFIER = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2024 LoopKit Authors. All rights reserved.";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -902,6 +932,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = GarminServiceKitUI/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -929,6 +963,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = GarminServiceKitUI/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (

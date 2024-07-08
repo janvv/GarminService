@@ -9,6 +9,7 @@
 import os.log
 import HealthKit
 import LoopKit
+import ConnectIQ
 
 public enum GarminServiceError: Error {
     case incompatibleTherapySettings
