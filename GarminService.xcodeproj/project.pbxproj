@@ -22,7 +22,8 @@
 		3D8127232C2A01F900F433FF /* GarminServiceKitUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A91BAC3A22BC69B500ABF1BB /* GarminServiceKitUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3D8127242C2A025800F433FF /* GarminServiceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D77C6652C20E0F000E8D4D9 /* GarminServiceKit.framework */; };
 		3D8127272C2A025A00F433FF /* LoopKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D77C6FC2C24C2FA00E8D4D9 /* LoopKit.framework */; };
-		3D9DD6C42C3C20EA00B0B83F /* ConnectIQ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D9DD6C32C3C20EA00B0B83F /* ConnectIQ.framework */; platformFilter = ios; };
+		3D9DD6C52C3C219900B0B83F /* ConnectIQ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D9DD6C32C3C20EA00B0B83F /* ConnectIQ.framework */; platformFilter = ios; };
+		3D9DD6C62C3C219900B0B83F /* ConnectIQ.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3D9DD6C32C3C20EA00B0B83F /* ConnectIQ.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A99C714023396D6200AB9035 /* OSLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C62DA32331CAD400535612 /* OSLog.swift */; };
 		A9B007B422BD6FF7000131DE /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B007B222BD6FF7000131DE /* LocalizedString.swift */; };
 		A9B007C022BD7130000131DE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A9B007BE22BD7130000131DE /* Localizable.strings */; };
@@ -74,6 +75,17 @@
 			files = (
 				3D8127202C2A01F700F433FF /* GarminServiceKit.framework in Embed Frameworks */,
 				3D8127232C2A01F900F433FF /* GarminServiceKitUI.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D9DD6C72C3C219900B0B83F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3D9DD6C62C3C219900B0B83F /* ConnectIQ.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -160,8 +172,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D9DD6C42C3C20EA00B0B83F /* ConnectIQ.framework in Frameworks */,
 				3D77C70B2C24D95F00E8D4D9 /* LoopKit.framework in Frameworks */,
+				3D9DD6C52C3C219900B0B83F /* ConnectIQ.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,6 +335,7 @@
 				3D77C6612C20E0F000E8D4D9 /* Sources */,
 				3D77C6622C20E0F000E8D4D9 /* Frameworks */,
 				3D77C6632C20E0F000E8D4D9 /* Resources */,
+				3D9DD6C72C3C219900B0B83F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
