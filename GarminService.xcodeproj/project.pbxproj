@@ -24,6 +24,9 @@
 		3D8127272C2A025A00F433FF /* LoopKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D77C6FC2C24C2FA00E8D4D9 /* LoopKit.framework */; };
 		3D9DD6C52C3C219900B0B83F /* ConnectIQ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D9DD6C32C3C20EA00B0B83F /* ConnectIQ.framework */; platformFilter = ios; };
 		3D9DD6C62C3C219900B0B83F /* ConnectIQ.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3D9DD6C32C3C20EA00B0B83F /* ConnectIQ.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3DA670882C4E79FE003C467C /* DeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA670872C4E79FE003C467C /* DeviceManager.swift */; };
+		3DA6708A2C4E7A86003C467C /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA670892C4E7A86003C467C /* Shared.swift */; };
+		3DA6708D2C4EECE3003C467C /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA670892C4E7A86003C467C /* Shared.swift */; };
 		A99C714023396D6200AB9035 /* OSLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C62DA32331CAD400535612 /* OSLog.swift */; };
 		A9B007B422BD6FF7000131DE /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B007B222BD6FF7000131DE /* LocalizedString.swift */; };
 		A9B007C022BD7130000131DE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A9B007BE22BD7130000131DE /* Localizable.strings */; };
@@ -108,6 +111,8 @@
 		3D77C70A2C24D95F00E8D4D9 /* LoopKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LoopKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D77C70C2C24D96E00E8D4D9 /* LoopKitUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LoopKitUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D9DD6C32C3C20EA00B0B83F /* ConnectIQ.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ConnectIQ.framework; sourceTree = "<group>"; };
+		3DA670872C4E79FE003C467C /* DeviceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceManager.swift; sourceTree = "<group>"; };
+		3DA670892C4E7A86003C467C /* Shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shared.swift; sourceTree = "<group>"; };
 		A91BAC1F22BC691A00ABF1BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A91BAC3A22BC69B500ABF1BB /* GarminServiceKitUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GarminServiceKitUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A91BAC3D22BC69B500ABF1BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -250,6 +255,7 @@
 		A91BAC3B22BC69B500ABF1BB /* GarminServiceKitUI */ = {
 			isa = PBXGroup;
 			children = (
+				3DA670872C4E79FE003C467C /* DeviceManager.swift */,
 				3D77C7062C24CBD100E8D4D9 /* GarminServiceTableViewController.swift */,
 				A9E4153722BC89B600168E14 /* IdentifiableClass.swift */,
 				3D77C6832C22F95C00E8D4D9 /* GarminServiceKitUI.h */,
@@ -276,6 +282,7 @@
 		A9B007AE22BD6FD0000131DE /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				3DA670892C4E7A86003C467C /* Shared.swift */,
 				A9B007B222BD6FF7000131DE /* LocalizedString.swift */,
 			);
 			path = Common;
@@ -491,6 +498,7 @@
 			files = (
 				3D77C6F62C22FF7200E8D4D9 /* LocalizedString.swift in Sources */,
 				3D77C6F72C22FF7200E8D4D9 /* GarminService.swift in Sources */,
+				3DA6708D2C4EECE3003C467C /* Shared.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,8 +511,10 @@
 				A9B007B422BD6FF7000131DE /* LocalizedString.swift in Sources */,
 				3D77C7072C24CBD100E8D4D9 /* GarminServiceTableViewController.swift in Sources */,
 				C1E703932507193400DAB534 /* Image.swift in Sources */,
+				3DA6708A2C4E7A86003C467C /* Shared.swift in Sources */,
 				3D77C6822C22F64D00E8D4D9 /* GarminService+UI.swift in Sources */,
 				A9C62DA52331CAE200535612 /* OSLog.swift in Sources */,
+				3DA670882C4E79FE003C467C /* DeviceManager.swift in Sources */,
 				A9E4153B22BC8A3800168E14 /* UIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
