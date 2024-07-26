@@ -18,7 +18,7 @@ extension Notification.Name {
 
 
 final class GarminServiceTableViewController: UITableViewController, UITextFieldDelegate, IQDeviceEventDelegate {
-    
+   
     public enum Operation {
         case create
         case update
@@ -78,6 +78,10 @@ final class GarminServiceTableViewController: UITableViewController, UITextField
             self.garmin = edge540
             NSLog("Retrived garmin \(edge540)")
             ConnectIQ.sharedInstance().register(forDeviceEvents: self.garmin, delegate: self)
+            let app = IQApp(uuid: UUID(uuidString: "4e32944d-8bbb-41fd-8318-909efae86ac8"), store: UUID(), device: edge540)
+            NSLog("Setting garmin service app to \(app)")
+            self.service.app = app!
+            
         }
     }
     

@@ -1,11 +1,3 @@
-//
-//  LocalizedString.swift
-//  NightscoutService
-//
-//  Created by Darin Krauss on 6/21/19.
-//  Copyright © 2019 LoopKit Authors. All rights reserved.
-//
-
 import Foundation
 
 private class FrameworkBundle {

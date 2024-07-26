@@ -1,11 +1,3 @@
-//
-//  IdentifiableClass.swift
-//  NightscoutServiceKitUI
-//
-//  Created by Darin Krauss on 6/20/19.
-//  Copyright © 2019 LoopKit Authors. All rights reserved.
-//
-
 import Foundation
 
 protocol IdentifiableClass: AnyObject {

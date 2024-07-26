@@ -8,10 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-//! Project version number for NightscoutServiceKitUI.
-FOUNDATION_EXPORT double NightscoutServiceKitUIVersionNumber;
+//! Project version number for GarminServiceKitUI.
+FOUNDATION_EXPORT double GarminServiceKitUIVersionNumber;
 
-//! Project version string for NightscoutServiceKitUI.
-FOUNDATION_EXPORT const unsigned char NightscoutServiceKitUIVersionString[];
+//! Project version string for GarminServiceKitUI.
+FOUNDATION_EXPORT const unsigned char GarminServiceKitUIVersionString[];
 
-// In this header, you should import all the public headers of your framework using statements like #import <NightscoutServiceKitUI/PublicHeader.h>

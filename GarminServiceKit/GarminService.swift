@@ -1,24 +1,15 @@
-//
-//  NightscoutService.swift
-//  NightscoutServiceKit
-//
-//  Created by Darin Krauss on 6/20/19.
-//  Copyright © 2019 LoopKit Authors. All rights reserved.
-//
-
 import os.log
-import HealthKit
 import LoopKit
 import ConnectIQ
+import HealthKit
 
 public enum GarminServiceError: Error {
     case incompatibleTherapySettings
     case missingCredentials
 }
 
-
 public final class GarminService: Service {
-    
+   
     public var customerToken: String?
 
     public static let serviceIdentifier = "GarminService"
@@ -28,15 +19,21 @@ public final class GarminService: Service {
     public weak var serviceDelegate: ServiceDelegate?
 
     public var isOnboarded: Bool
-
+    
+    public var app: IQApp?
+    
     public init() {
         self.isOnboarded = true
+        NSLog("GarminService.init")
     }
+    
 
     public required init?(rawState: RawStateValue) {
         self.isOnboarded = rawState["isOnboarded"] as? Bool ?? true   // Backwards compatibility
+        NSLog("GarminService.init \(rawState)")
     }
 
+    
     public var rawState: RawStateValue {
         return [
             "isOnboarded": isOnboarded,
@@ -67,6 +64,23 @@ public final class GarminService: Service {
 }
 
 extension GarminService: RemoteDataService {
+    
+    func sendMessage(_ message: Any) {
+        //We need to send a message to the garmin device using the ConnectIQ framework. We create a message object with the message data and the app object. We then send the message using the ConnectIQ send message method. We also register for the message progress and completion events
+        if let app = self.app {
+            NSLog("> Sending message: \(message)")
+            ConnectIQ.sharedInstance().sendMessage(message, to: app, progress: {(sentBytes: UInt32, totalBytes: UInt32) -> Void in
+                let percent: Double = 100.0 * Double(sentBytes / totalBytes)
+                print("Progress: \(percent)% sent \(sentBytes) bytes of \(totalBytes)")
+            }, completion: {(result: IQSendMessageResult) -> Void in
+                NSLog("Send message finished with result: \(NSStringFromSendMessageResult(result))")
+            })}
+        else {
+            NSLog("No garmin aplication set, can't send message")
+        }
+    }
+    
+    
     public func uploadAlertData(_ stored: [LoopKit.SyncAlertObject], completion: @escaping (Result<Bool, any Error>) -> Void) {
         completion(.success(true))
         return
@@ -93,7 +107,16 @@ extension GarminService: RemoteDataService {
     }
     
     public func uploadGlucoseData(_ stored: [LoopKit.StoredGlucoseSample], completion: @escaping (Result<Bool, any Error>) -> Void) {
-        print("\(Date()):GarminService.uploadGlucoseData")
+        print("\(Date()):GarminService.uploadGlucoseData \(stored)")
+        if !stored.isEmpty{
+            let glucose = stored[0].quantity.doubleValue(for: HKUnit(from: "mg/dL"))
+            let date = stored[0].startDate
+            let trend = stored[0].trend?.rawValue ?? -1
+            NSLog("Sending Glucose: \(glucose) Trend: \(trend) Date: \(date)")
+            
+            let message = ["glucose": glucose, "trend": trend, "timestamp": Int(date.timeIntervalSince1970)] as [String : Any]
+            self.sendMessage(message)
+        }
         completion(.success(true))
         return
     }

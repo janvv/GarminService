@@ -1,17 +1,7 @@
-//
-//  NightscoutServiceKit.h
-//  NightscoutServiceKit
-//
-//  Created by Darin Krauss on 6/20/19.
-//  Copyright © 2019 LoopKit Authors. All rights reserved.
-//
-
 #import <UIKit/UIKit.h>
 
-//! Project version number for NightscoutServiceKit.
+//! Project version number for GarminServiceKit.
 FOUNDATION_EXPORT double GarminServiceKitVersionNumber;
 
-//! Project version string for NightscoutServiceKit.
+//! Project version string for GarminServiceKit.
 FOUNDATION_EXPORT const unsigned char GarminServiceKitVersionString[];
-
-// In this header, you should import all the public headers of your framework using statements like #import <NightscoutServiceKit/PublicHeader.h>
