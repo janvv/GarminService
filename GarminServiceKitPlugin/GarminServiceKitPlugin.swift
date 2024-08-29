@@ -11,8 +11,8 @@ import LoopKitUI
 import GarminServiceKit
 import GarminServiceKitUI
 
-class NightscoutServiceKitPlugin: NSObject, ServiceUIPlugin {
-    private let log = OSLog(category: "GarminServiceKitPlugin")
+class GarminServiceKitPlugin: NSObject, ServiceUIPlugin {
+    private let log = Logger(subsystem: "Garmin", category: "GarminServiceKitPlugin")
 
     public var serviceType: ServiceUI.Type? {
         return GarminService.self
@@ -20,6 +20,6 @@ class NightscoutServiceKitPlugin: NSObject, ServiceUIPlugin {
 
     override init() {
         super.init()
-        log.default("Instantiated")
+        log.info("Instantiated")
     }
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D1E09C52C7F34FA00FADFCA /* DeviceTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1E09C12C7F34FA00FADFCA /* DeviceTableCellView.swift */; };
+		3D1E09C82C7F34FA00FADFCA /* DeviceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D1E09C42C7F34FA00FADFCA /* DeviceTableViewCell.xib */; };
 		3D77C6822C22F64D00E8D4D9 /* GarminService+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D77C6812C22F64D00E8D4D9 /* GarminService+UI.swift */; };
 		3D77C6842C22F95C00E8D4D9 /* GarminServiceKitUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77C6832C22F95C00E8D4D9 /* GarminServiceKitUI.h */; };
 		3D77C6862C22FB6A00E8D4D9 /* GarminServiceKitPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77C6852C22FB6A00E8D4D9 /* GarminServiceKitPlugin.h */; };
@@ -22,20 +24,16 @@
 		3D8127232C2A01F900F433FF /* GarminServiceKitUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A91BAC3A22BC69B500ABF1BB /* GarminServiceKitUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3D8127242C2A025800F433FF /* GarminServiceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D77C6652C20E0F000E8D4D9 /* GarminServiceKit.framework */; };
 		3D8127272C2A025A00F433FF /* LoopKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D77C6FC2C24C2FA00E8D4D9 /* LoopKit.framework */; };
+		3D93DE2D2C808934009D5A77 /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D93DE2C2C808934009D5A77 /* AppInfo.swift */; };
 		3D9DD6C52C3C219900B0B83F /* ConnectIQ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D9DD6C32C3C20EA00B0B83F /* ConnectIQ.framework */; platformFilter = ios; };
 		3D9DD6C62C3C219900B0B83F /* ConnectIQ.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3D9DD6C32C3C20EA00B0B83F /* ConnectIQ.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3DA670882C4E79FE003C467C /* DeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA670872C4E79FE003C467C /* DeviceManager.swift */; };
 		3DA6708A2C4E7A86003C467C /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA670892C4E7A86003C467C /* Shared.swift */; };
 		3DA6708D2C4EECE3003C467C /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA670892C4E7A86003C467C /* Shared.swift */; };
-		A99C714023396D6200AB9035 /* OSLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C62DA32331CAD400535612 /* OSLog.swift */; };
+		3DB5F7DC2C53D6110053A564 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB5F7DB2C53D6110053A564 /* UIColor.swift */; };
 		A9B007B422BD6FF7000131DE /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B007B222BD6FF7000131DE /* LocalizedString.swift */; };
-		A9B007C022BD7130000131DE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A9B007BE22BD7130000131DE /* Localizable.strings */; };
-		A9C62DA52331CAE200535612 /* OSLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C62DA32331CAD400535612 /* OSLog.swift */; };
 		A9E4153622BC89A300168E14 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E4153522BC89A300168E14 /* NibLoadable.swift */; };
 		A9E4153822BC89B600168E14 /* IdentifiableClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E4153722BC89B600168E14 /* IdentifiableClass.swift */; };
-		A9E4153B22BC8A3800168E14 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E4153A22BC8A3800168E14 /* UIColor.swift */; };
-		C1E7036625070A0E00DAB534 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1E7036525070A0E00DAB534 /* Assets.xcassets */; };
-		C1E703932507193400DAB534 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E703922507193400DAB534 /* Image.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +94,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3D1E09C12C7F34FA00FADFCA /* DeviceTableCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceTableCellView.swift; sourceTree = "<group>"; };
+		3D1E09C42C7F34FA00FADFCA /* DeviceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeviceTableViewCell.xib; sourceTree = "<group>"; };
 		3D77C6402C1F966300E8D4D9 /* GarminService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GarminService.swift; sourceTree = "<group>"; };
 		3D77C6422C1F968700E8D4D9 /* GarminService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GarminService.h; sourceTree = "<group>"; };
 		3D77C6652C20E0F000E8D4D9 /* GarminServiceKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GarminServiceKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,9 +110,11 @@
 		3D77C7082C24CF2F00E8D4D9 /* LoopKitUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LoopKitUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D77C70A2C24D95F00E8D4D9 /* LoopKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LoopKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D77C70C2C24D96E00E8D4D9 /* LoopKitUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LoopKitUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D93DE2C2C808934009D5A77 /* AppInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppInfo.swift; sourceTree = "<group>"; };
 		3D9DD6C32C3C20EA00B0B83F /* ConnectIQ.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ConnectIQ.framework; sourceTree = "<group>"; };
 		3DA670872C4E79FE003C467C /* DeviceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceManager.swift; sourceTree = "<group>"; };
 		3DA670892C4E7A86003C467C /* Shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shared.swift; sourceTree = "<group>"; };
+		3DB5F7DB2C53D6110053A564 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColor.swift; path = Extensions/UIColor.swift; sourceTree = SOURCE_ROOT; };
 		A91BAC1F22BC691A00ABF1BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A91BAC3A22BC69B500ABF1BB /* GarminServiceKitUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GarminServiceKitUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A91BAC3D22BC69B500ABF1BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -120,7 +122,6 @@
 		A99C713423396CB100AB9035 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9B007B222BD6FF7000131DE /* LocalizedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedString.swift; sourceTree = "<group>"; };
 		A9B007BC22BD7120000131DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
-		A9B007BF22BD7130000131DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A9B007D622BD716A000131DE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		A9B007D722BD716B000131DE /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A9B007D822BD716C000131DE /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -130,46 +131,20 @@
 		A9B007DC22BD7170000131DE /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A9B007DD22BD7171000131DE /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A9B007DE22BD7171000131DE /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
-		A9B007E022BD7176000131DE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		A9B007E122BD7177000131DE /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
-		A9B007E222BD7179000131DE /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
-		A9B007E322BD717A000131DE /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
-		A9B007E422BD717B000131DE /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
-		A9B007E522BD717C000131DE /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Localizable.strings; sourceTree = "<group>"; };
-		A9B007E622BD717D000131DE /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
-		A9B007E722BD717E000131DE /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
-		A9B007E822BD717F000131DE /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
-		A9C62DA32331CAD400535612 /* OSLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSLog.swift; sourceTree = "<group>"; };
 		A9E4153522BC89A300168E14 /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		A9E4153722BC89B600168E14 /* IdentifiableClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifiableClass.swift; sourceTree = "<group>"; };
-		A9E4153A22BC8A3800168E14 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		C121D8D629C7866D00DA0520 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
-		C121D8D729C7866D00DA0520 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C15A582E29C7866600D3A5A1 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
-		C15A582F29C7866600D3A5A1 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
-		C1E7036525070A0E00DAB534 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C1E703922507193400DAB534 /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
-		C1FAB5C629C786B000D25073 /* hi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hi; path = hi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C1FDCC0E29C786F90056E652 /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/Localizable.strings; sourceTree = "<group>"; };
-		C1FDCC0F29C786F90056E652 /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F5D9BFF627DAB4BF002E48F6 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
-		F5D9BFF727DAB4BF002E48F6 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F5D9BFF827DAB509002E48F6 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Localizable.strings; sourceTree = "<group>"; };
-		F5D9BFF927DAB509002E48F6 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F5D9BFFA27DAB517002E48F6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
-		F5D9BFFB27DAB517002E48F6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F5D9BFFC27DAB525002E48F6 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		F5D9BFFD27DAB525002E48F6 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		F5D9BFFE27DAB533002E48F6 /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/Localizable.strings; sourceTree = "<group>"; };
-		F5D9BFFF27DAB533002E48F6 /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F5D9C00027DAB53F002E48F6 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
-		F5D9C00127DAB540002E48F6 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F5D9C00227DAB549002E48F6 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
-		F5D9C00327DAB549002E48F6 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F5D9C00427DAB551002E48F6 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
-		F5D9C00527DAB551002E48F6 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F5E0BE2027E1DE720033557E /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/Localizable.strings; sourceTree = "<group>"; };
-		F5E0BE2127E1DE720033557E /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +179,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D1E09C92C7F34FF00FADFCA /* ConnectIQ */ = {
+			isa = PBXGroup;
+			children = (
+				3DA670872C4E79FE003C467C /* DeviceManager.swift */,
+				3D93DE2C2C808934009D5A77 /* AppInfo.swift */,
+				3D1E09C12C7F34FA00FADFCA /* DeviceTableCellView.swift */,
+				3D1E09C42C7F34FA00FADFCA /* DeviceTableViewCell.xib */,
+			);
+			path = ConnectIQ;
+			sourceTree = "<group>";
+		};
 		3D77C6EC2C22FE9400E8D4D9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -255,16 +241,14 @@
 		A91BAC3B22BC69B500ABF1BB /* GarminServiceKitUI */ = {
 			isa = PBXGroup;
 			children = (
-				3DA670872C4E79FE003C467C /* DeviceManager.swift */,
 				3D77C7062C24CBD100E8D4D9 /* GarminServiceTableViewController.swift */,
+				3D1E09C92C7F34FF00FADFCA /* ConnectIQ */,
 				A9E4153722BC89B600168E14 /* IdentifiableClass.swift */,
 				3D77C6832C22F95C00E8D4D9 /* GarminServiceKitUI.h */,
 				A91BAC3D22BC69B500ABF1BB /* Info.plist */,
 				3D77C6812C22F64D00E8D4D9 /* GarminService+UI.swift */,
 				A9E4153522BC89A300168E14 /* NibLoadable.swift */,
-				C1E7036525070A0E00DAB534 /* Assets.xcassets */,
 				A9E4153922BC8A2C00168E14 /* Extensions */,
-				A9B007BE22BD7130000131DE /* Localizable.strings */,
 			);
 			path = GarminServiceKitUI;
 			sourceTree = "<group>";
@@ -291,7 +275,6 @@
 		A9C62DA22331CAC200535612 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				A9C62DA32331CAD400535612 /* OSLog.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -299,8 +282,7 @@
 		A9E4153922BC8A2C00168E14 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				C1E703922507193400DAB534 /* Image.swift */,
-				A9E4153A22BC8A3800168E14 /* UIColor.swift */,
+				3DB5F7DB2C53D6110053A564 /* UIColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -477,8 +459,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C1E7036625070A0E00DAB534 /* Assets.xcassets in Resources */,
-				A9B007C022BD7130000131DE /* Localizable.strings in Resources */,
+				3D1E09C82C7F34FA00FADFCA /* DeviceTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,13 +490,13 @@
 				A9E4153822BC89B600168E14 /* IdentifiableClass.swift in Sources */,
 				A9E4153622BC89A300168E14 /* NibLoadable.swift in Sources */,
 				A9B007B422BD6FF7000131DE /* LocalizedString.swift in Sources */,
+				3D93DE2D2C808934009D5A77 /* AppInfo.swift in Sources */,
 				3D77C7072C24CBD100E8D4D9 /* GarminServiceTableViewController.swift in Sources */,
-				C1E703932507193400DAB534 /* Image.swift in Sources */,
+				3D1E09C52C7F34FA00FADFCA /* DeviceTableCellView.swift in Sources */,
 				3DA6708A2C4E7A86003C467C /* Shared.swift in Sources */,
+				3DB5F7DC2C53D6110053A564 /* UIColor.swift in Sources */,
 				3D77C6822C22F64D00E8D4D9 /* GarminService+UI.swift in Sources */,
-				A9C62DA52331CAE200535612 /* OSLog.swift in Sources */,
 				3DA670882C4E79FE003C467C /* DeviceManager.swift in Sources */,
-				A9E4153B22BC8A3800168E14 /* UIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,7 +505,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D77C6882C22FB8000E8D4D9 /* GarminServiceKitPlugin.swift in Sources */,
-				A99C714023396D6200AB9035 /* OSLog.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -580,36 +560,6 @@
 				C15A582E29C7866600D3A5A1 /* ar */,
 				C121D8D629C7866D00DA0520 /* cs */,
 				C1FDCC0E29C786F90056E652 /* sk */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		A9B007BE22BD7130000131DE /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A9B007BF22BD7130000131DE /* Base */,
-				A9B007E022BD7176000131DE /* zh-Hans */,
-				A9B007E122BD7177000131DE /* nl */,
-				A9B007E222BD7179000131DE /* fr */,
-				A9B007E322BD717A000131DE /* de */,
-				A9B007E422BD717B000131DE /* it */,
-				A9B007E522BD717C000131DE /* nb */,
-				A9B007E622BD717D000131DE /* pl */,
-				A9B007E722BD717E000131DE /* ru */,
-				A9B007E822BD717F000131DE /* es */,
-				F5D9BFF727DAB4BF002E48F6 /* da */,
-				F5D9BFF927DAB509002E48F6 /* fi */,
-				F5D9BFFB27DAB517002E48F6 /* ja */,
-				F5D9BFFD27DAB525002E48F6 /* pt-BR */,
-				F5D9BFFF27DAB533002E48F6 /* ro */,
-				F5D9C00127DAB540002E48F6 /* sv */,
-				F5D9C00327DAB549002E48F6 /* vi */,
-				F5D9C00527DAB551002E48F6 /* tr */,
-				F5E0BE2127E1DE720033557E /* he */,
-				C15A582F29C7866600D3A5A1 /* ar */,
-				C121D8D729C7866D00DA0520 /* cs */,
-				C1FAB5C629C786B000D25073 /* hi */,
-				C1FDCC0F29C786F90056E652 /* sk */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

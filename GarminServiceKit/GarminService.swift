@@ -2,7 +2,7 @@ import os.log
 import LoopKit
 import ConnectIQ
 import HealthKit
-
+import os
 public enum GarminServiceError: Error {
     case incompatibleTherapySettings
     case missingCredentials
@@ -22,15 +22,19 @@ public final class GarminService: Service {
     
     public var app: IQApp?
     
+    private let logger : Logger
+    
     public init() {
         self.isOnboarded = true
-        NSLog("GarminService.init")
+        self.logger = Logger(subsystem: "Garmin", category: "GarminService")
+        self.logger.info("GarminService.init")
     }
     
 
     public required init?(rawState: RawStateValue) {
         self.isOnboarded = rawState["isOnboarded"] as? Bool ?? true   // Backwards compatibility
-        NSLog("GarminService.init \(rawState)")
+        self.logger = Logger(subsystem: "Garmin", category: "GarminService")
+        self.logger.info("GarminService.init")
     }
 
     
@@ -41,13 +45,13 @@ public final class GarminService: Service {
     }
     
     public func completeCreate() {
-        print("GarminService.completeCreate")
+        self.logger.info("GarminService.completeCreate")
         //try! KeychainManager().setLogglyCustomerToken(customerToken)
         //createClient()
     }
 
     public func completeUpdate() {
-        print("GarminService.completeUpdate")
+        self.logger.info("GarminService.completeUpdate")
         //try! KeychainManager().setLogglyCustomerToken(customerToken)
         //createClient()
         serviceDelegate?.serviceDidUpdateState(self)
@@ -55,7 +59,7 @@ public final class GarminService: Service {
 
     public func completeDelete() {
         //try! KeychainManager().setLogglyCustomerToken()
-        print("GarminService.completeDelete")
+        self.logger.info("GarminService.completeDelete")
         serviceDelegate?.serviceWantsDeletion(self)
         
     }
@@ -65,18 +69,18 @@ public final class GarminService: Service {
 
 extension GarminService: RemoteDataService {
     
-    func sendMessage(_ message: Any) {
+    func sendMessage(_ message: [String: Any]) {
         //We need to send a message to the garmin device using the ConnectIQ framework. We create a message object with the message data and the app object. We then send the message using the ConnectIQ send message method. We also register for the message progress and completion events
         if let app = self.app {
-            NSLog("> Sending message: \(message)")
+            self.logger.info("Sending message: \(message)")
             ConnectIQ.sharedInstance().sendMessage(message, to: app, progress: {(sentBytes: UInt32, totalBytes: UInt32) -> Void in
                 let percent: Double = 100.0 * Double(sentBytes / totalBytes)
                 print("Progress: \(percent)% sent \(sentBytes) bytes of \(totalBytes)")
             }, completion: {(result: IQSendMessageResult) -> Void in
-                NSLog("Send message finished with result: \(NSStringFromSendMessageResult(result))")
+                self.logger.info("Send message finished with result: \(NSStringFromSendMessageResult(result))")
             })}
         else {
-            NSLog("No garmin aplication set, can't send message")
+            self.logger.info("No garmin aplication set, can't send message")
         }
     }
     

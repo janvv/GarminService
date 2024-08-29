@@ -116,7 +116,7 @@ class DeviceManager: NSObject {
                         NSLog("Garmin DeviceManager: No saved devices to restore.")
                         self.devices.removeAll()
                     }
-                    //self.delegate!.devicesChanged()
+                    self.delegate!.devicesChanged()
                 } else {
                     NSLog("Garmin DeviceManager: Failed to unarchive the file as an array of IQDevice objects.")
                 }
