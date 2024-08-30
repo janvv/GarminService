@@ -34,6 +34,7 @@
 
 import ConnectIQ
 import UIKit
+import os
 
 let kDevicesFileName = "devices"
 
@@ -45,11 +46,11 @@ class DeviceManager: NSObject {
     
     var devices = [IQDevice]()
     var delegate: DeviceManagerDelegate?
-    
+    private let logger: Logger
     static let sharedInstance = DeviceManager()
    
     private override init() {
-        // no op
+        self.logger = Logger(subsystem: "Garmin", category: "DeviceManager")
     }
     
     func handleOpenURL(_ url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
@@ -63,13 +64,13 @@ class DeviceManager: NSObject {
             let devices = ConnectIQ.sharedInstance().parseDeviceSelectionResponse(from: url)
             dump(devices)
             if let devices = devices, devices.count > 0 {
-                NSLog("Forgetting \(Int(self.devices.count)) known devices.")
+                self.logger.info("Forgetting \(Int(self.devices.count)) known devices.")
                 self.devices.removeAll()
                 for (index, device) in devices.enumerated() {
                     guard let device = device as? IQDevice else { continue }
-                    NSLog("Received device (\(index+1) of \(devices.count): [\(device.uuid), \(device.modelName), \(device.friendlyName)]")
+                    self.logger.info("Received device (\(index+1) of \(devices.count): [\(device.uuid), \(device.modelName), \(device.friendlyName)]")
                     self.devices.append(device)
-                    NSLog("status>>> \(ConnectIQ.sharedInstance().getDeviceStatus(device).rawValue)")
+                    self.logger.debug("status>>> \(ConnectIQ.sharedInstance().getDeviceStatus(device).rawValue)")
                 }
                 self.saveDevicesToFileSystem()
                 self.delegate?.devicesChanged()
@@ -80,7 +81,7 @@ class DeviceManager: NSObject {
     }
     
     func saveDevicesToFileSystem() {
-        NSLog("Saving known devices.")
+        self.logger.debug("Saving known devices.")
         
         //let fileManager = FileManager.default
         //let filePath = self.devicesFilePath()
@@ -95,7 +96,7 @@ class DeviceManager: NSObject {
             try data.write(to: URL(fileURLWithPath: self.devicesFilePath()))
         }
         catch let error {
-            NSLog("Failed to save devices file with error: \(error)")
+            self.logger.error("Failed to save devices file with error: \(error)")
         }
         
     }
@@ -106,25 +107,25 @@ class DeviceManager: NSObject {
                 if let restoredDevices = try NSKeyedUnarchiver.unarchivedObject(ofClasses: [NSArray.self, IQDevice.self], from: data) as? [IQDevice] {
                     // Use restoredDevices array of IQDevice objects
                     if restoredDevices.count > 0 {
-                        NSLog("Garmin DeviceManager: Restored saved devices:")
+                        self.logger.debug("Garmin DeviceManager: Restored saved devices:")
                         for device in restoredDevices {
-                            NSLog("\(device)")
+                            self.logger.debug("\(device)")
                         }
                         self.devices = restoredDevices
                     }
                     else {
-                        NSLog("Garmin DeviceManager: No saved devices to restore.")
+                        self.logger.debug("Garmin DeviceManager: No saved devices to restore.")
                         self.devices.removeAll()
                     }
                     self.delegate!.devicesChanged()
                 } else {
-                    NSLog("Garmin DeviceManager: Failed to unarchive the file as an array of IQDevice objects.")
+                    self.logger.warning("Garmin DeviceManager: Failed to unarchive the file as an array of IQDevice objects.")
                 }
             } else {
-                NSLog("Garmin DeviceManager: Failed to read data from the file.")
+                self.logger.warning("Garmin DeviceManager: Failed to read data from the file.")
             }
         } catch {
-            NSLog("Error: \(error)")
+            self.logger.error("Error: \(error)")
         }
     }
     
@@ -136,21 +137,21 @@ class DeviceManager: NSObject {
         do {
             let files = try fileManager.contentsOfDirectory(atPath: appSupportDirectory.path)
             for file in files {
-                print("File: \(file)")
+                self.logger.debug("File: \(file)")
             }
         }
         catch let error {
-            NSLog("There was an error listing the contents of the directory \(appSupportDirectory) with error: \(error)")
+            self.logger.error("There was an error listing the contents of the directory \(appSupportDirectory) with error: \(error)")
         }
         
         let dirExists = (try? appSupportDirectory.checkResourceIsReachable()) ?? false
         if !dirExists {
-            NSLog("Garmin DeviceManager: DeviceManager.devicesFilePath appSupportDirectory \(appSupportDirectory) does not exist, creating... ")
+            self.logger.debug("Garmin DeviceManager: DeviceManager.devicesFilePath appSupportDirectory \(appSupportDirectory) does not exist, creating... ")
             do {
                 try FileManager.default.createDirectory(at: appSupportDirectory, withIntermediateDirectories: true, attributes: nil)
             }
             catch let error {
-                NSLog("There was an error creating the directory \(appSupportDirectory) with error: \(error)")
+                self.logger.error("There was an error creating the directory \(appSupportDirectory) with error: \(error)")
             }
         }
         return appSupportDirectory.appendingPathComponent(kDevicesFileName).path

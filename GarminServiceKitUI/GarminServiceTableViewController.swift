@@ -62,6 +62,7 @@ final class GarminServiceTableViewController: UITableViewController, UITextField
         self.deviceManager.delegate = self
         deviceManager.restoreDevicesFromFileSystem()
         
+        
         //register reusable garmin device cells
         let bundle = Bundle(identifier: "com.loopkit.GarminServiceKitUI")
         let garminDeviceCellNib = UINib(nibName: "DeviceTableViewCell", bundle: bundle)
@@ -270,9 +271,21 @@ final class GarminServiceTableViewController: UITableViewController, UITextField
         for device: IQDevice in self.deviceManager.devices {
             ConnectIQ.sharedInstance().register(forDeviceEvents: device, delegate: self)
         }
+        
         //reload data if if table view is available
         if self.tableView != nil {
             self.tableView.reloadSections(IndexSet(integer: Section.garmindevices.rawValue), with: .automatic)
+        }
+        
+        // If no garmin device set yet, try using the previously set device UUID
+        if self.garmin == nil {
+            if let savedUUIDString = UserDefaults.standard.string(forKey: "activeGarminDeviceUUID"),
+               let savedUUID = UUID(uuidString: savedUUIDString) {
+                let matchedDevice = self.deviceManager.devices.first { $0.uuid == savedUUID }
+                if let device = matchedDevice {
+                    setActiveGarminDevice(device)
+                }
+            }
         }
     }
     
@@ -305,12 +318,20 @@ final class GarminServiceTableViewController: UITableViewController, UITextField
         ConnectIQ.sharedInstance().unregister(forAllDeviceEvents: self)
         self.logger.info("Setting active garmin device to \(device ?? nil)")
         self.garmin = device
+        
         ConnectIQ.sharedInstance().register(forDeviceEvents: self.garmin, delegate: self)
         //TODO: Check if app is installed
         let app = IQApp(uuid: UUID(uuidString: "4e32944d-8bbb-41fd-8318-909efae86ac8"), store: UUID(), device: device)
         self.logger.log("Setting garmin service app to \(app)")
         self.service.app = app!
-
+        
+        // Save the UUID of the device to UserDefaults (or a similar persistent store)
+        if let device = device {
+            UserDefaults.standard.set(device.uuid.uuidString, forKey: "activeGarminDeviceUUID")
+        } else {
+            UserDefaults.standard.removeObject(forKey: "activeGarminDeviceUUID")
+        }
+        
         /*
         let devices = deviceManager.devices
         self.logger.log("Retrieved available devices \(devices)")
