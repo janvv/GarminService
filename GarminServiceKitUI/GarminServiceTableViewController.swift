@@ -26,8 +26,9 @@ final class GarminServiceTableViewController: UITableViewController, UITextField
     }
     
     private let service: GarminService
+    
     private let deviceManager = DeviceManager.sharedInstance
-    private var garmin: IQDevice?
+    //private var garmin: IQDevice?
     private let operation: Operation
     private let logger : Logger
     init(service: GarminService, for operation: Operation) {
@@ -205,21 +206,27 @@ final class GarminServiceTableViewController: UITableViewController, UITextField
             cell.nameLabel.text! = device.friendlyName
             cell.modelLabel.text! = device.modelName
             switch status {
-            case .invalidDevice:
-                cell.statusLabel.text! = "Invalid Device"
-                cell.enabled = false
-            case .bluetoothNotReady:
-                cell.statusLabel.text! = "Bluetooth Off"
-                cell.enabled = false
-            case .notFound:
-                cell.statusLabel.text! = "Not Found"
-                cell.enabled = false
-            case .notConnected:
-                cell.statusLabel.text! = "Not Connected"
-                cell.enabled = false
-            case .connected:
-                cell.statusLabel.text! = "Connected"
-                cell.enabled = true
+                case .invalidDevice:
+                    cell.statusLabel.text! = "Invalid Device"
+                    cell.enabled = false
+                case .bluetoothNotReady:
+                    cell.statusLabel.text! = "Bluetooth Off"
+                    cell.enabled = false
+                case .notFound:
+                    cell.statusLabel.text! = "Not Found"
+                    cell.enabled = false
+                case .notConnected:
+                    cell.statusLabel.text! = "Not Connected"
+                    cell.enabled = false
+                case .connected:
+                    cell.statusLabel.text! = "Connected"
+                    cell.enabled = true
+            }
+            //if current active device has same UUID, then mark this row as selected
+            if let activeDevice = self.service.app?.device {
+                cell.accessoryType = device.uuid == activeDevice.uuid ? .checkmark : .none
+            } else {
+                cell.accessoryType = .none
             }
             return cell
         case .sendtestdata:
@@ -239,23 +246,28 @@ final class GarminServiceTableViewController: UITableViewController, UITextField
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch Section(rawValue: indexPath.section)! {
         case .garminconnect:
-
             //Launches Garmin Connect Mobile for the purpose of retrieving a list of ConnectIQ-compatible devices.
             ConnectIQ.sharedInstance().showDeviceSelection()
         case .garmindevices:
             let device = self.deviceManager.devices[indexPath.row]
-            self.setActiveGarminDevice(device)
+            //if the selected row corresponds to device that is already active, deactivate it
+            if let activeDevice = self.service.app?.device, activeDevice.uuid == device.uuid {
+                self.service.setActiveGarminDevice(nil)
+                self.logger.debug("Deselected device: \(device)")
+            } else {
+                self.service.setActiveGarminDevice(device)
+                self.logger.debug("Selected device: \(device)")
+            }
+            tableView.reloadRows(at: [indexPath], with: .automatic)
         case .sendtestdata:
             
-            if let device = self.garmin {
-                self.logger.debug("Sending messages: Selected \(device)")
+            if let app = self.service.app {
+                self.logger.debug("Sending messages: Selected \(app.device)")
                 let timestamp = Date().timeIntervalSince1970
                 let data = ["glucose": 111, "trend": 111, "timestamp": Int(timestamp)] as [String : Any]
-                let app = IQApp(uuid: UUID(uuidString: "4e32944d-8bbb-41fd-8318-909efae86ac8"), store: UUID(), device: device)
-                
-                sendMessage(data, app: app!)
+                sendMessage(data, app: app)
             } else {
-                self.logger.debug("Tried sending message but no device assigned")
+                self.logger.debug("Tried sending test data but service has no active device")
             }
         case .deleteService:
             confirmDeletion {
@@ -268,6 +280,9 @@ final class GarminServiceTableViewController: UITableViewController, UITextField
 
     func devicesChanged() {
         logger.info("Devices changed: \(self.deviceManager.devices)")
+        
+        //register to new devices
+        ConnectIQ.sharedInstance().unregister(forAllDeviceEvents: self);
         for device: IQDevice in self.deviceManager.devices {
             ConnectIQ.sharedInstance().register(forDeviceEvents: device, delegate: self)
         }
@@ -275,17 +290,6 @@ final class GarminServiceTableViewController: UITableViewController, UITextField
         //reload data if if table view is available
         if self.tableView != nil {
             self.tableView.reloadSections(IndexSet(integer: Section.garmindevices.rawValue), with: .automatic)
-        }
-        
-        // If no garmin device set yet, try using the previously set device UUID
-        if self.garmin == nil {
-            if let savedUUIDString = UserDefaults.standard.string(forKey: "activeGarminDeviceUUID"),
-               let savedUUID = UUID(uuidString: savedUUIDString) {
-                let matchedDevice = self.deviceManager.devices.first { $0.uuid == savedUUID }
-                if let device = matchedDevice {
-                    setActiveGarminDevice(device)
-                }
-            }
         }
     }
     
@@ -313,38 +317,7 @@ final class GarminServiceTableViewController: UITableViewController, UITextField
         })
     }
     
-    func setActiveGarminDevice(_ device: IQDevice?) {
-        //We retrieve the available devices from the device manager and set the current device to the first device that matches the model name "Edge 540 Solar". We register for device status changes.
-        ConnectIQ.sharedInstance().unregister(forAllDeviceEvents: self)
-        self.logger.info("Setting active garmin device to \(device ?? nil)")
-        self.garmin = device
-        
-        ConnectIQ.sharedInstance().register(forDeviceEvents: self.garmin, delegate: self)
-        //TODO: Check if app is installed
-        let app = IQApp(uuid: UUID(uuidString: "4e32944d-8bbb-41fd-8318-909efae86ac8"), store: UUID(), device: device)
-        self.logger.log("Setting garmin service app to \(app)")
-        self.service.app = app!
-        
-        // Save the UUID of the device to UserDefaults (or a similar persistent store)
-        if let device = device {
-            UserDefaults.standard.set(device.uuid.uuidString, forKey: "activeGarminDeviceUUID")
-        } else {
-            UserDefaults.standard.removeObject(forKey: "activeGarminDeviceUUID")
-        }
-        
-        /*
-        let devices = deviceManager.devices
-        self.logger.log("Retrieved available devices \(devices)")
-        if let edge540 = devices.first(where: { $0.modelName == "Edge 540 Solar" }) {
-            self.garmin = edge540
-            self.logger.log("Retrived garmin \(edge540)")
-            ConnectIQ.sharedInstance().register(forDeviceEvents: self.garmin, delegate: self)
-            let app = IQApp(uuid: UUID(uuidString: "4e32944d-8bbb-41fd-8318-909efae86ac8"), store: UUID(), device: edge540)
-            self.logger.log("Setting garmin service app to \(app)")
-            self.service.app = app!
-            
-        }*/
-    }
+    
 }
 
 extension AuthenticationTableViewCell: IdentifiableClass {}

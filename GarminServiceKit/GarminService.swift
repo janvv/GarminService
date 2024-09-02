@@ -1,7 +1,7 @@
 import os.log
 import LoopKit
-import ConnectIQ
 import HealthKit
+import ConnectIQ
 import os
 public enum GarminServiceError: Error {
     case incompatibleTherapySettings
@@ -28,13 +28,37 @@ public final class GarminService: Service {
         self.isOnboarded = true
         self.logger = Logger(subsystem: "Garmin", category: "GarminService")
         self.logger.info("GarminService.init")
+        
+        //restore device
+        if let savedUUIDString = UserDefaults.standard.string(forKey: "activeGarminDeviceUUID"),
+           let savedUUID = UUID(uuidString: savedUUIDString) {
+            logger.info("Restoring active garmin device from saved UUID: \(savedUUID)")
+            let device = IQDevice(id: savedUUID, modelName: "Garmin", friendlyName: "Friendly")
+            setActiveGarminDevice(device)
+            //let matchedDevice = self.deviceManager.devices.first { $0.uuid == savedUUID }
+            //if let device = matchedDevice {
+            //    setActiveGarminDevice(device)
+            //}
+        }
     }
-    
 
     public required init?(rawState: RawStateValue) {
         self.isOnboarded = rawState["isOnboarded"] as? Bool ?? true   // Backwards compatibility
         self.logger = Logger(subsystem: "Garmin", category: "GarminService")
         self.logger.info("GarminService.init")
+        
+        //restore device
+        if let savedUUIDString = UserDefaults.standard.string(forKey: "activeGarminDeviceUUID"),
+           let savedUUID = UUID(uuidString: savedUUIDString) {
+            logger.info("Restoring active garmin device from saved UUID: \(savedUUID)")
+            let device = IQDevice(id: savedUUID, modelName: "Garmin", friendlyName: "Friendly")
+            setActiveGarminDevice(device)
+            //let matchedDevice = self.deviceManager.devices.first { $0.uuid == savedUUID }
+            //if let device = matchedDevice {
+            //    setActiveGarminDevice(device)
+            //}
+        }
+        
     }
 
     
@@ -69,13 +93,13 @@ public final class GarminService: Service {
 
 extension GarminService: RemoteDataService {
     
-    func sendMessage(_ message: [String: Any]) {
+    public func sendMessage(_ message: [String: Any]) {
         //We need to send a message to the garmin device using the ConnectIQ framework. We create a message object with the message data and the app object. We then send the message using the ConnectIQ send message method. We also register for the message progress and completion events
         if let app = self.app {
             self.logger.info("Sending message: \(message)")
             ConnectIQ.sharedInstance().sendMessage(message, to: app, progress: {(sentBytes: UInt32, totalBytes: UInt32) -> Void in
                 let percent: Double = 100.0 * Double(sentBytes / totalBytes)
-                print("Progress: \(percent)% sent \(sentBytes) bytes of \(totalBytes)")
+                self.logger.debug("Progress: \(percent)% sent \(sentBytes) bytes of \(totalBytes)")
             }, completion: {(result: IQSendMessageResult) -> Void in
                 self.logger.info("Send message finished with result: \(NSStringFromSendMessageResult(result))")
             })}
@@ -83,6 +107,28 @@ extension GarminService: RemoteDataService {
             self.logger.info("No garmin aplication set, can't send message")
         }
     }
+    
+    public func setActiveGarminDevice(_ device: IQDevice?) {
+        self.logger.info("Setting active garmin device to \(device ?? nil)")
+        
+        //set service app
+        if let device = device {
+            //TODO: Check if app is installed
+            let app = IQApp(uuid: UUID(uuidString: "4e32944d-8bbb-41fd-8318-909efae86ac8"), store: UUID(), device: device)
+            self.app = app!
+        } else {
+            self.app = nil
+        }
+        self.logger.debug("Set garmin service app to \(self.app)")
+        
+        // Save the UUID of the device to UserDefaults (or a similar persistent store)
+        if let device = device {
+            UserDefaults.standard.set(device.uuid.uuidString, forKey: "activeGarminDeviceUUID")
+        } else {
+            UserDefaults.standard.removeObject(forKey: "activeGarminDeviceUUID")
+        }
+    }
+    
     
     
     public func uploadAlertData(_ stored: [LoopKit.SyncAlertObject], completion: @escaping (Result<Bool, any Error>) -> Void) {
@@ -111,12 +157,12 @@ extension GarminService: RemoteDataService {
     }
     
     public func uploadGlucoseData(_ stored: [LoopKit.StoredGlucoseSample], completion: @escaping (Result<Bool, any Error>) -> Void) {
-        print("\(Date()):GarminService.uploadGlucoseData \(stored)")
+        //self.logger.debug("\(Date()):GarminService.uploadGlucoseData \(stored)")
         if !stored.isEmpty{
             let glucose = stored[0].quantity.doubleValue(for: HKUnit(from: "mg/dL"))
             let date = stored[0].startDate
             let trend = stored[0].trend?.rawValue ?? -1
-            NSLog("Sending Glucose: \(glucose) Trend: \(trend) Date: \(date)")
+            self.logger.debug("Sending Glucose: \(glucose) Trend: \(trend) Date: \(date)")
             
             let message = ["glucose": glucose, "trend": trend, "timestamp": Int(date.timeIntervalSince1970)] as [String : Any]
             self.sendMessage(message)
@@ -135,6 +181,6 @@ extension GarminService: RemoteDataService {
         return
     }
     
-    public var glucoseDataLimit: Int? {return 1}
+    public var glucoseDataLimit: Int? {return 1000}
 }
 
