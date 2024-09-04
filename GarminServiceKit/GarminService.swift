@@ -24,43 +24,40 @@ public final class GarminService: Service {
     
     private let logger : Logger
     
+    
     public init() {
         self.isOnboarded = true
         self.logger = Logger(subsystem: "Garmin", category: "GarminService")
         self.logger.info("GarminService.init")
-        
-        //restore device
-        if let savedUUIDString = UserDefaults.standard.string(forKey: "activeGarminDeviceUUID"),
-           let savedUUID = UUID(uuidString: savedUUIDString) {
-            logger.info("Restoring active garmin device from saved UUID: \(savedUUID)")
-            let device = IQDevice(id: savedUUID, modelName: "Garmin", friendlyName: "Friendly")
-            setActiveGarminDevice(device)
-            //let matchedDevice = self.deviceManager.devices.first { $0.uuid == savedUUID }
-            //if let device = matchedDevice {
-            //    setActiveGarminDevice(device)
-            //}
-        }
+        restoreGarminDevice()
     }
-
+    
     public required init?(rawState: RawStateValue) {
         self.isOnboarded = rawState["isOnboarded"] as? Bool ?? true   // Backwards compatibility
         self.logger = Logger(subsystem: "Garmin", category: "GarminService")
-        self.logger.info("GarminService.init")
-        
-        //restore device
+        self.logger.info("GarminService.init (raw state)")
+        restoreGarminDevice()
+    }
+    
+    private func restoreGarminDevice() {
+        //restore previously active device using the uuid from stored user defaults
         if let savedUUIDString = UserDefaults.standard.string(forKey: "activeGarminDeviceUUID"),
            let savedUUID = UUID(uuidString: savedUUIDString) {
             logger.info("Restoring active garmin device from saved UUID: \(savedUUID)")
-            let device = IQDevice(id: savedUUID, modelName: "Garmin", friendlyName: "Friendly")
+            let device = IQDevice(id: savedUUID, modelName: "", friendlyName: "")
+            
+            /*If we don't register the device, sensind messages fails with DeviceNotAvailable
+             We pass nil because we are not actively monitoring device status yet
+             From the documentation: A companion app must register to receive device events before calling methods that
+             operate on devices or apps, such as `getDeviceStatus:` or `sendMessage:toApp:progress:completion:`.
+             */
+            ConnectIQ.sharedInstance().register(forDeviceEvents: device, delegate: nil)
             setActiveGarminDevice(device)
-            //let matchedDevice = self.deviceManager.devices.first { $0.uuid == savedUUID }
-            //if let device = matchedDevice {
-            //    setActiveGarminDevice(device)
-            //}
+            
+        } else {
+            logger.info("No Garmin device information found.")
         }
-        
     }
-
     
     public var rawState: RawStateValue {
         return [
@@ -110,7 +107,6 @@ extension GarminService: RemoteDataService {
     
     public func setActiveGarminDevice(_ device: IQDevice?) {
         self.logger.info("Setting active garmin device to \(device ?? nil)")
-        
         //set service app
         if let device = device {
             //TODO: Check if app is installed
