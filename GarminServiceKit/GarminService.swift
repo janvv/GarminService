@@ -9,10 +9,13 @@ public enum GarminServiceError: Error {
 }
 
 public final class GarminService: Service {
+    public weak var stateDelegate: StatefulPluggableDelegate?
+    
+    public static var pluginIdentifier = "GarminService"
+    //public static let serviceIdentifier = "GarminService"
    
     public var customerToken: String?
 
-    public static let serviceIdentifier = "GarminService"
 
     public static let localizedTitle = LocalizedString("Garmin", comment: "The title of the Garmin service")
     
@@ -75,21 +78,25 @@ public final class GarminService: Service {
         self.logger.info("GarminService.completeUpdate")
         //try! KeychainManager().setLogglyCustomerToken(customerToken)
         //createClient()
-        serviceDelegate?.serviceDidUpdateState(self)
+        //serviceDelegate?.serviceDidUpdateState(self)
+        stateDelegate?.pluginDidUpdateState(self)
     }
 
     public func completeDelete() {
         //try! KeychainManager().setLogglyCustomerToken()
         self.logger.info("GarminService.completeDelete")
-        serviceDelegate?.serviceWantsDeletion(self)
-        
+        //serviceDelegate?.serviceWantsDeletion(self)
+        stateDelegate?.pluginWantsDeletion(self)
     }
     
     
 }
 
 extension GarminService: RemoteDataService {
-    
+    public func remoteNotificationWasReceived(_ notification: [String : AnyObject]) async throws {
+        return
+    }
+
     public func sendMessage(_ message: [String: Any]) {
         //We need to send a message to the garmin device using the ConnectIQ framework. We create a message object with the message data and the app object. We then send the message using the ConnectIQ send message method. We also register for the message progress and completion events
         if let app = self.app {
@@ -163,6 +170,12 @@ extension GarminService: RemoteDataService {
             let message = ["glucose": glucose, "trend": trend, "timestamp": Int(date.timeIntervalSince1970)] as [String : Any]
             self.sendMessage(message)
         }
+        completion(.success(true))
+        return
+    }
+    
+    
+    public func uploadCgmEventData(_ stored: [PersistedCgmEvent], completion: @escaping (Result<Bool, any Error>) -> Void) {
         completion(.success(true))
         return
     }
