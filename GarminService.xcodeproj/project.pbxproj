@@ -18,6 +18,7 @@
 		3D77C7002C24C30100E8D4D9 /* LoopKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D77C6FF2C24C30100E8D4D9 /* LoopKitUI.framework */; };
 		3D77C7072C24CBD100E8D4D9 /* GarminServiceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D77C7062C24CBD100E8D4D9 /* GarminServiceTableViewController.swift */; };
 		3D77C70B2C24D95F00E8D4D9 /* LoopKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D77C70A2C24D95F00E8D4D9 /* LoopKit.framework */; };
+		3D8109592C8BB1AB00B2C371 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8109582C8BB1AB00B2C371 /* UIColor.swift */; };
 		3D81271F2C2A01F700F433FF /* GarminServiceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D77C6652C20E0F000E8D4D9 /* GarminServiceKit.framework */; };
 		3D8127202C2A01F700F433FF /* GarminServiceKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3D77C6652C20E0F000E8D4D9 /* GarminServiceKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3D8127222C2A01F900F433FF /* GarminServiceKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A91BAC3A22BC69B500ABF1BB /* GarminServiceKitUI.framework */; };
@@ -30,7 +31,6 @@
 		3DA670882C4E79FE003C467C /* DeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA670872C4E79FE003C467C /* DeviceManager.swift */; };
 		3DA6708A2C4E7A86003C467C /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA670892C4E7A86003C467C /* Shared.swift */; };
 		3DA6708D2C4EECE3003C467C /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA670892C4E7A86003C467C /* Shared.swift */; };
-		3DB5F7DC2C53D6110053A564 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB5F7DB2C53D6110053A564 /* UIColor.swift */; };
 		A9B007B422BD6FF7000131DE /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B007B222BD6FF7000131DE /* LocalizedString.swift */; };
 		A9E4153622BC89A300168E14 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E4153522BC89A300168E14 /* NibLoadable.swift */; };
 		A9E4153822BC89B600168E14 /* IdentifiableClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E4153722BC89B600168E14 /* IdentifiableClass.swift */; };
@@ -110,6 +110,7 @@
 		3D77C7082C24CF2F00E8D4D9 /* LoopKitUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LoopKitUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D77C70A2C24D95F00E8D4D9 /* LoopKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LoopKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D77C70C2C24D96E00E8D4D9 /* LoopKitUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LoopKitUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D8109582C8BB1AB00B2C371 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColor.swift; path = GarminServiceKitUI/UIColor.swift; sourceTree = SOURCE_ROOT; };
 		3D93DE2C2C808934009D5A77 /* AppInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppInfo.swift; sourceTree = "<group>"; };
 		3D9DD6C32C3C20EA00B0B83F /* ConnectIQ.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ConnectIQ.framework; sourceTree = "<group>"; };
 		3DA670872C4E79FE003C467C /* DeviceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceManager.swift; sourceTree = "<group>"; };
@@ -275,6 +276,7 @@
 		A9C62DA22331CAC200535612 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				3D8109582C8BB1AB00B2C371 /* UIColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -494,9 +496,9 @@
 				3D77C7072C24CBD100E8D4D9 /* GarminServiceTableViewController.swift in Sources */,
 				3D1E09C52C7F34FA00FADFCA /* DeviceTableCellView.swift in Sources */,
 				3DA6708A2C4E7A86003C467C /* Shared.swift in Sources */,
-				3DB5F7DC2C53D6110053A564 /* UIColor.swift in Sources */,
 				3D77C6822C22F64D00E8D4D9 /* GarminService+UI.swift in Sources */,
 				3DA670882C4E79FE003C467C /* DeviceManager.swift in Sources */,
+				3D8109592C8BB1AB00B2C371 /* UIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
