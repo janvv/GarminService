@@ -53,31 +53,21 @@ class DeviceManager: NSObject {
         self.logger = Logger(subsystem: "Garmin", category: "DeviceManager")
     }
     
-    func handleOpenURL(_ url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-//        guard let sourceApplication = options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String else {
-//            print("handleOpenURL: Source application value was nil, expecting \(IQGCMBundle); disregarind open request, likely not for us.")
-//            return false
-//        }
-        var sourceApplication = IQGCMBundle
-        if (url.scheme! == ReturnURLScheme) && (sourceApplication == IQGCMBundle) {
-            
-            let devices = ConnectIQ.sharedInstance().parseDeviceSelectionResponse(from: url)
-            dump(devices)
-            if let devices = devices, devices.count > 0 {
-                self.logger.info("Forgetting \(Int(self.devices.count)) known devices.")
-                self.devices.removeAll()
-                for (index, device) in devices.enumerated() {
-                    guard let device = device as? IQDevice else { continue }
-                    self.logger.info("Received device (\(index+1) of \(devices.count): [\(device.uuid), \(device.modelName), \(device.friendlyName)]")
-                    self.devices.append(device)
-                    self.logger.debug("status>>> \(ConnectIQ.sharedInstance().getDeviceStatus(device).rawValue)")
-                }
-                self.saveDevicesToFileSystem()
-                self.delegate?.devicesChanged()
-                return true
+    func handleDeviceSelectionList(devices: [Any?]) {
+        if devices.count > 0 {
+            logger.info("Received device list with \(devices.count) devices.")
+            self.logger.info("Forgetting \(Int(self.devices.count)) known devices.")
+            self.devices.removeAll()
+            for (index, device) in devices.enumerated() {
+                guard let device = device as? IQDevice else { continue }
+                self.logger.info("Received device (\(index+1) of \(devices.count): [\(device.uuid), \(device.modelName), \(device.friendlyName)]")
+                self.devices.append(device)
             }
+            self.saveDevicesToFileSystem()
+            self.delegate?.devicesChanged()
+        } else {
+            self.logger.info("Device list was empty.")
         }
-        return false
     }
     
     func saveDevicesToFileSystem() {

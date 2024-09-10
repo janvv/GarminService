@@ -18,7 +18,7 @@ extension Notification.Name {
 }
 
 
-final class GarminServiceTableViewController: UITableViewController, UITextFieldDelegate, IQDeviceEventDelegate, DeviceManagerDelegate {
+final class GarminServiceTableViewController: UITableViewController, UITextFieldDelegate, IQDeviceEventDelegate, IQUIOverrideDelegate, DeviceManagerDelegate {
    
     public enum Operation {
         case create
@@ -43,15 +43,13 @@ final class GarminServiceTableViewController: UITableViewController, UITextField
             self.handleOpenURL(Notification)
         }
 
-        //The url scheme is what garmin connect will use to open this application, we need to specify the URL scheme value (CFBundleURLSchemes key) which is under the CFBundleURLTypes in the plist file. This value is currently set to LoopGarmin
-        ConnectIQ.sharedInstance().initialize(withUrlScheme: ReturnURLScheme, uiOverrideDelegate: nil)
+        //The url scheme is what garmin connect will use to open this application
+        ConnectIQ.sharedInstance().initialize(withUrlScheme: ReturnURLScheme, uiOverrideDelegate: self)
         logger.debug("ConnectIQ initialized")
         
     }
     
-    
     // MARK: -
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -86,18 +84,28 @@ final class GarminServiceTableViewController: UITableViewController, UITextField
     func handleOpenURL(_ notification: Notification) {
         //Handles the notification that was send from the app delegate after Loop was opened by garmin connect application in response to a openURL. The notification carries the Gamrin connect app response with information about the available garmin devices. We parse the device list using the DeviceManager and then set the current device
         
-        self.logger.debug("GarminServiceTableViewController: Handling Notification: \(notification)")
+        //        guard let sourceApplication = options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String else {
+        //            print("handleOpenURL: Source application value was nil, expecting \(IQGCMBundle); disregarind open request, likely not for us.")
+        //            return false
+        //        }
+        
+        self.logger.debug("Handling Open URL Notification: \(notification)")
         guard let url = notification.userInfo?["url"] as? URL else {
-            NSLog("GarminServiceTableViewController: URL not found")
-            return
-        }
-        guard let options = notification.userInfo?["options"] as? [UIApplication.OpenURLOptionsKey : Any] else {
-            self.logger.debug("GarminServiceTableViewController: Options not found")
+            logger.warning("No URL found, ignoring open request.")
             return
         }
         
-        //garmin app returns with current list of available devices, we parse these and update the table view
-        deviceManager.handleOpenURL(url, options:options)
+        //verify open url origin comes from garmin connect
+        let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)
+        let ciqBundle = urlComponents?.queryItems?.first(where: { $0.name == "ciqBundle" })?.value
+        guard ciqBundle == IQGCMBundle else {
+            logger.warning("handleOpenURL source != \(IQGCMBundle), disregarind open request, likely not for us.")
+            return
+        }
+        
+        //pass device list to Device Manager
+        let devices = ConnectIQ.sharedInstance().parseDeviceSelectionResponse(from: url)
+        deviceManager.handleDeviceSelectionList(devices: devices ?? [])
     }
     
     
@@ -248,6 +256,7 @@ final class GarminServiceTableViewController: UITableViewController, UITextField
         case .garminconnect:
             //Launches Garmin Connect Mobile for the purpose of retrieving a list of ConnectIQ-compatible devices.
             ConnectIQ.sharedInstance().showDeviceSelection()
+            ConnectIQ.sharedInstance().showAppStoreForConnectMobile()
         case .garmindevices:
             let device = self.deviceManager.devices[indexPath.row]
             //if the selected row corresponds to device that is already active, deactivate it
@@ -274,6 +283,11 @@ final class GarminServiceTableViewController: UITableViewController, UITextField
                 tableView.deselectRow(at: indexPath, animated: true)
             }
         }
+    }
+    //MARK: - IQUIOverrideDelegate
+    func needsToInstallConnectMobile() {
+        logger.debug("Needs to install Connect Mobile")
+        ConnectIQ.sharedInstance().showAppStoreForConnectMobile()
     }
     
     // MARK: - DeviceManager Event Delegate
