@@ -8,14 +8,16 @@ public enum GarminServiceError: Error {
     case missingCredentials
 }
 
-public final class GarminService: Service {
+public final class GarminService: Service, GarminServiceDelegate {
+    
     public weak var stateDelegate: StatefulPluggableDelegate?
     
     public static var pluginIdentifier = "GarminService"
     //public static let serviceIdentifier = "GarminService"
    
     public var customerToken: String?
-
+    
+    private let deviceStatusHandler : DeviceEventDelegate
 
     public static let localizedTitle = LocalizedString("Garmin", comment: "The title of the Garmin service")
     
@@ -32,6 +34,10 @@ public final class GarminService: Service {
         self.isOnboarded = true
         self.logger = Logger(subsystem: "Garmin", category: "GarminService")
         self.logger.info("GarminService.init")
+        
+        //we need this man in the middle delegate because deriving from IQDeviceEventDelegate is a pain as Service does not derive from NSObject
+        deviceStatusHandler =  DeviceEventDelegate()
+        deviceStatusHandler.delegate = self
         restoreGarminDevice()
     }
     
@@ -39,6 +45,10 @@ public final class GarminService: Service {
         self.isOnboarded = rawState["isOnboarded"] as? Bool ?? true   // Backwards compatibility
         self.logger = Logger(subsystem: "Garmin", category: "GarminService")
         self.logger.info("GarminService.init (raw state)")
+        
+        //we need this man in the middle delegate because deriving from IQDeviceEventDelegate is a pain as Service does not derive from NSObject
+        deviceStatusHandler =  DeviceEventDelegate()
+        deviceStatusHandler.delegate = self
         restoreGarminDevice()
     }
     
@@ -69,7 +79,7 @@ public final class GarminService: Service {
         stateDelegate?.pluginWantsDeletion(self)
     }
     
-    
+    //MARK: - Garmin Specific
     private func restoreGarminDevice() {
         //restore previously active device using the uuid from stored user defaults
         if let savedUUIDString = UserDefaults.standard.string(forKey: "activeGarminDeviceUUID"),
@@ -88,7 +98,7 @@ public final class GarminService: Service {
         //if there was an old device, deregister it
         if let oldDevice = self.app?.device {
             self.logger.info("Deregistering for device events for \(oldDevice)")
-            ConnectIQ.sharedInstance().unregister(forDeviceEvents: self.app?.device, delegate: nil)
+            ConnectIQ.sharedInstance().unregister(forDeviceEvents: self.app?.device, delegate: self.deviceStatusHandler)
             
             //remove from UserDefaults
             self.app = nil
@@ -102,11 +112,10 @@ public final class GarminService: Service {
             // Save the UUID of the device to UserDefaults (or a similar persistent store)
             UserDefaults.standard.set(device.uuid.uuidString, forKey: "activeGarminDeviceUUID")
             
-            /*If we don't register the device, sensind messages fails with DeviceNotAvailable
-             We pass nil because we are not actively monitoring device status yet
+            /*If we don't register the device, sensind messages fails with DeviceNotAvailable (passing nil also works, but we are interested in the device status changes).
              From the documentation: A companion app must register to receive device events before calling methods that operate on devices or apps, such as `getDeviceStatus:` or `sendMessage:toApp:progress:completion:`.
              */
-            ConnectIQ.sharedInstance().register(forDeviceEvents: device, delegate: nil)
+            ConnectIQ.sharedInstance().register(forDeviceEvents: device, delegate: self.deviceStatusHandler)
         }
         
         //send with 5 second delay to allow for bluetooth connection
@@ -144,9 +153,53 @@ public final class GarminService: Service {
         }
         healthStore.execute(glucoseQuery)
     }
+    func stringForDeviceStatus(_ status: IQDeviceStatus) -> String {
+        switch status {
+        case .invalidDevice:
+            return "Invalid Device"
+        case .bluetoothNotReady:
+            return "Bluetooth Not Ready"
+        case .notFound:
+            return "Device Not Found"
+        case .notConnected:
+            return "Device Not Connected"
+        case .connected:
+            return "Device Connected"
+        default:
+            return "Unknown Status"
+        }
+    }
+    
+    func deviceStatusChanged(_ device: IQDevice, status: IQDeviceStatus) {
+        self.logger.info("Device status changed for \(device): \(self.stringForDeviceStatus(status))")
+        if status == .connected {
+            //send glucose data when device is connected
+            self.sendMostRecentGlucose()
+        }
+    }
+
+}
+
+//MARK: - Garmin Device Status
+
+
+class DeviceEventDelegate: NSObject, IQDeviceEventDelegate {
+    weak var delegate: GarminServiceDelegate?
+
+    func deviceStatusChanged(_ device: IQDevice!, status: IQDeviceStatus) {
+        // Forward the device status change to GarminService
+        delegate?.deviceStatusChanged(device, status: status)
+    }
+}
+
+protocol GarminServiceDelegate: AnyObject {
+    func deviceStatusChanged(_ device: IQDevice, status: IQDeviceStatus)
+    
 }
 
 
+
+//MARK: - RemoteDataService
 extension GarminService: RemoteDataService {
     public func remoteNotificationWasReceived(_ notification: [String : AnyObject]) async throws {
         return
