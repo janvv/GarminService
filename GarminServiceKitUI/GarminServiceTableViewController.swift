@@ -1,9 +1,9 @@
 //
-//  LogglyServiceTableViewController.swift
-//  LogglyServiceKitUI
+//  GarminServiceTableViewController.swift
+//  GarminServiceKitUI
 //
-//  Created by Darin Krauss on 6/20/19.
-//  Copyright © 2019 LoopKit Authors. All rights reserved.
+//  Created by Jan Wrede on 06/21/2024.
+//  Copyright © 2024 Jan Wrede. All rights reserved.
 //
 
 import UIKit

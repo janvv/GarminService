@@ -1,3 +1,11 @@
+//
+//  GarminService.swift
+//  GarminService
+//
+//  Created by Jan Wrede on 06/21/2024.
+//  Copyright © 2024 Jan Wrede. All rights reserved.
+//
+
 import os.log
 import LoopKit
 import HealthKit

@@ -115,7 +115,6 @@
 		3D9DD6C32C3C20EA00B0B83F /* ConnectIQ.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ConnectIQ.framework; sourceTree = "<group>"; };
 		3DA670872C4E79FE003C467C /* DeviceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceManager.swift; sourceTree = "<group>"; };
 		3DA670892C4E7A86003C467C /* Shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shared.swift; sourceTree = "<group>"; };
-		3DB5F7DB2C53D6110053A564 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColor.swift; path = Extensions/UIColor.swift; sourceTree = SOURCE_ROOT; };
 		A91BAC1F22BC691A00ABF1BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A91BAC3A22BC69B500ABF1BB /* GarminServiceKitUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GarminServiceKitUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A91BAC3D22BC69B500ABF1BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -249,7 +248,6 @@
 				A91BAC3D22BC69B500ABF1BB /* Info.plist */,
 				3D77C6812C22F64D00E8D4D9 /* GarminService+UI.swift */,
 				A9E4153522BC89A300168E14 /* NibLoadable.swift */,
-				A9E4153922BC8A2C00168E14 /* Extensions */,
 			);
 			path = GarminServiceKitUI;
 			sourceTree = "<group>";
@@ -277,14 +275,6 @@
 			isa = PBXGroup;
 			children = (
 				3D8109582C8BB1AB00B2C371 /* UIColor.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		A9E4153922BC8A2C00168E14 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				3DB5F7DB2C53D6110053A564 /* UIColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
