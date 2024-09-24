@@ -267,7 +267,7 @@ final class GarminServiceTableViewController: UITableViewController, UITextField
                 self.service.setActiveGarminDevice(device)
                 self.logger.debug("Selected device: \(device)")
             }
-            tableView.reloadRows(at: [indexPath], with: .automatic)
+            tableView.reloadData()
         case .sendtestdata:
             
             if let app = self.service.app {
