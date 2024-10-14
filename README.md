@@ -24,7 +24,7 @@ This repository contains the GarminService Plugin for the Loop iPhone app. This 
 4. Add the data field labeled `sugar` to your Garmin data screens. You will find this under the **Connect IQ** section.
 5. You will initially see "CandyMountain" with a waiting indicator (three dots), which appears when there has been no data in the last 10 minutes.
 
-|![](resources/garmin1.BMP)|![](resources/garmin2.BMP)|![](resources/garmin3.BMP)|
+| <img src="resources/garmin1.BMP" alt="Garmin 1" width="300"/> | <img src="resources/garmin2.BMP" alt="Garmin 2" width="300"/> | <img src="resources/garmin3.BMP" alt="Garmin 3" width="300"/> |
 | --- | --- | --- |
 
 
@@ -47,13 +47,24 @@ The Garmin Service plugin (this repository) must be integrated into the Loop Wor
 * Select the `LoopConfigOverride` file in Xcode's project navigator uncomment the `LOOP_DEVELOPMENT_TEAM`, and replace the existing team id with your own id.
 4. Build & Run on your Phone
 	* **Note:** If you don't want to replace your current Loop instance, you can modify the `LoopConfigOverride.xcconfig` to install a second instance of Loop and try it out.
-### 3. Setup Garmin Service in Loop
+
+<a name="cgm-upload-toggle"></a>
+### 3. Activate CGM upload toggle
+Enable the `Upload Readings` toggle in Loop's CGM settings. If this setting is off, the Garmin Service won't receive continous CGM data. This setting needs to be re-activated every time a new CGM is connected. Use the code customizations to avoid this and have the upload always active.
+
+|<img src="resources/dexcom_upload1.PNG" alt="Description" width="300"/>|<img src="resources/dexcom_upload2.PNG" alt="Description" width="300"/>|
+| --- | --- |
+
+**Note:** To remove any doubt: GarminService in no way uploads data anywhere except sending it to your GarminDevice. This toggle is only necessary because the way Loop handles uploads to remote services:
+
+**Explanation:** Garmin Service uses the `RemoteDataService` class which is also used by services like the NightScout Service to upload data to the cloud. Loop added this toggle for users that want to exclude CGM data from being uploaded to avoid duplication when CGM data is already imported through a different service. If the toggle is off, the services don't receive CGM data updates. In our case, we need them of course. This might exclude users from using the GarminService who need the toggle to be disabled. I think a better way to do this in Loop would be to move the toggle to the service itself rather than having one toggle that impacts all services. 
+	
+### 4. Setup Garmin Service in Loop
 1. Open Loop and go to `Settings` → `Services` → `Add Services` → `Garmin Service`.
-2. Tap **Connect Garmin Devices**. 
-	1. This will open the Garmin Connect App and reopen Loop to import the available devices.
+2. Tap **Connect Garmin Devices**: This will open the Garmin Connect App and reopen Loop to import available devices.
 3. Once connected, the Garmin Service should list your available devices. Select your Garmin device. Make sure to tap it so that it shows a check.
 
-|![](resources/garminservice1.jpeg)|![](resources/garminservice2.jpeg)|![](resources/garminservice3.jpeg)|
+| <img src="resources/garminservice1.jpeg" alt="Garmin Service 1" width="300"/> | <img src="resources/garminservice2.jpeg" alt="Garmin Service 2" width="300"/> | <img src="resources/garminservice3.jpeg" alt="Garmin Service 3" width="300"/> |
 | --- | --- | --- |
 
 ## Source Code
@@ -79,6 +90,9 @@ This service was built using the structure of the **Loogly Service** and **Night
 
 ## Feedback & Support
 Feel free to open issues or discussions on this repository for any questions or feedback. This is an open-source DIY project, and contributions are welcome!
+
+## Troubleshooting
+* Garmin does not update with ne CGM data? Check if you activated the [CGM Upload Toggle](#cgm-upload-toggle)
 
 ## License
 All rights reserved © Jan Wrede 2024.
