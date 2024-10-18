@@ -256,7 +256,6 @@ final class GarminServiceTableViewController: UITableViewController, UITextField
         case .garminconnect:
             //Launches Garmin Connect Mobile for the purpose of retrieving a list of ConnectIQ-compatible devices.
             ConnectIQ.sharedInstance().showDeviceSelection()
-            ConnectIQ.sharedInstance().showAppStoreForConnectMobile()
         case .garmindevices:
             let device = self.deviceManager.devices[indexPath.row]
             //if the selected row corresponds to device that is already active, deactivate it
