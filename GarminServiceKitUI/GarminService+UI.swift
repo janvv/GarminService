@@ -13,7 +13,13 @@ import GarminServiceKit
 
 extension GarminService: ServiceUI {
     
-    public static var image: UIImage? { nil }
+    public static var image: UIImage? {
+        let image = UIImage(named: "iconsmall.png", in: Bundle(for: GarminServiceTableViewController.self), compatibleWith: nil)
+        if image == nil {
+            print("Warning: Failed to load 'iconsmall.png' from the bundle.")
+        }
+        return image
+    }
 
     public static func setupViewController(colorPalette: LoopUIColorPalette, pluginHost: PluginHost) -> SetupUIResult<ServiceViewController, ServiceUI>
     {

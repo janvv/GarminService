@@ -106,7 +106,7 @@ public final class GarminService: Service {
         self.logger.info("Setting active garmin device to \(device ?? nil)")
         if let device = device {
             //TODO: Check if app is installed
-            self.app = IQApp(uuid: UUID(uuidString: "4e32944d-8bbb-41fd-8318-909efae86ac8"), store: UUID(), device: device)
+            self.app = IQApp(uuid: UUID(uuidString: "4e93029c-304d-45c1-8732-901fb8162887"), store: UUID(), device: device)
             // Save the UUID of the device to UserDefaults (or a similar persistent store)
             UserDefaults.standard.set(device.uuid.uuidString, forKey: "activeGarminDeviceUUID")
             

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D0F3F932D526DA500B69877 /* iconsmall.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D0F3F922D526DA500B69877 /* iconsmall.png */; };
 		3D1E09C52C7F34FA00FADFCA /* DeviceTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1E09C12C7F34FA00FADFCA /* DeviceTableCellView.swift */; };
 		3D1E09C82C7F34FA00FADFCA /* DeviceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D1E09C42C7F34FA00FADFCA /* DeviceTableViewCell.xib */; };
 		3D77C6822C22F64D00E8D4D9 /* GarminService+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D77C6812C22F64D00E8D4D9 /* GarminService+UI.swift */; };
@@ -94,6 +95,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3D0F3F922D526DA500B69877 /* iconsmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconsmall.png; sourceTree = "<group>"; };
 		3D1E09C12C7F34FA00FADFCA /* DeviceTableCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceTableCellView.swift; sourceTree = "<group>"; };
 		3D1E09C42C7F34FA00FADFCA /* DeviceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeviceTableViewCell.xib; sourceTree = "<group>"; };
 		3D77C6402C1F966300E8D4D9 /* GarminService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GarminService.swift; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 		A91BAC3B22BC69B500ABF1BB /* GarminServiceKitUI */ = {
 			isa = PBXGroup;
 			children = (
+				3D0F3F922D526DA500B69877 /* iconsmall.png */,
 				3D77C7062C24CBD100E8D4D9 /* GarminServiceTableViewController.swift */,
 				3D1E09C92C7F34FF00FADFCA /* ConnectIQ */,
 				A9E4153722BC89B600168E14 /* IdentifiableClass.swift */,
@@ -451,6 +454,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D0F3F932D526DA500B69877 /* iconsmall.png in Resources */,
 				3D1E09C82C7F34FA00FADFCA /* DeviceTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
