@@ -307,7 +307,8 @@ final class GarminServiceTableViewController: UITableViewController, UITextField
         
         //reload data if if table view is available
         if self.tableView != nil {
-            self.tableView.reloadSections(IndexSet(integer: Section.garmindevices.rawValue), with: .automatic)
+            //self.tableView.reloadSections(IndexSet(integer: Section.garmindevices.rawValue), with: .automatic)
+            self.tableView.reloadData()
         }
     }
     
@@ -317,7 +318,7 @@ final class GarminServiceTableViewController: UITableViewController, UITextField
         if status != .connected {
             self.logger.debug("Status changed to \(status.rawValue)")
         }
-        self.tableView.reloadSections(IndexSet(integer: Section.garmindevices.rawValue), with: .automatic)
+        self.tableView.reloadData()
     }
     
     //MARK: - Garmin Specific -
