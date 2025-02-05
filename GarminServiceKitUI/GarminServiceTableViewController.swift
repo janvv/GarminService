@@ -140,6 +140,8 @@ final class GarminServiceTableViewController: UITableViewController, UITextField
         view.endEditing(true)
         
         let alert = UIAlertController(serviceDeletionHandler: {
+            //TODO: Delete devices
+            self.deviceManager.clearAllData()
             self.service.completeDelete()
             self.notifyComplete()
         })
@@ -179,11 +181,14 @@ final class GarminServiceTableViewController: UITableViewController, UITextField
         case .garminconnect:
             return 1
         case .garmindevices:
-            return self.deviceManager.devices.count
+            // Only show device rows if there are devices available
+            return self.deviceManager.devices.isEmpty ? 0 : self.deviceManager.devices.count
         case .deleteService:
-            return 1
+            // Only show the delete option if it is not a creation operation and devices are present
+            return operation == .update && !self.deviceManager.devices.isEmpty ? 1 : 0
         case .sendtestdata:
-            return 1
+            // Only allow sending test data if devices are present
+            return !self.deviceManager.devices.isEmpty ? 1 : 0
         }
     }
     
@@ -204,7 +209,7 @@ final class GarminServiceTableViewController: UITableViewController, UITextField
         switch Section(rawValue: indexPath.section)! {
         case .garminconnect:
             let cell = tableView.dequeueReusableCell(withIdentifier: "StandardCellIdentifier") ?? UITableViewCell(style: .default, reuseIdentifier: "StandardCellIdentifier")
-            cell.textLabel?.text = "Connect Garmin Devices"
+            cell.textLabel?.text = "Refresh Garmin Devices"
             self.logger.debug("GarminServiceTableViewController: Button added")
             return cell
         case .garmindevices:
@@ -285,7 +290,7 @@ final class GarminServiceTableViewController: UITableViewController, UITextField
     }
     //MARK: - IQUIOverrideDelegate
     func needsToInstallConnectMobile() {
-        logger.debug("Needs to install Connect Mobile")
+        logger.debug("Needs to install Connect Mobile, Opening App Store")
         ConnectIQ.sharedInstance().showAppStoreForConnectMobile()
     }
     

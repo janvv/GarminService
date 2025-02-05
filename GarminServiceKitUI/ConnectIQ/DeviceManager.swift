@@ -90,6 +90,22 @@ class DeviceManager: NSObject {
         }
         
     }
+    func clearAllData() {
+        self.devices.removeAll()
+        self.removeDevicesFromFileSystem()
+        self.delegate?.devicesChanged()
+        self.logger.info("All devices have been cleared from both file system and memory.")
+    }
+    
+    func removeDevicesFromFileSystem() {
+        do {
+            try FileManager.default.removeItem(atPath: self.devicesFilePath())
+            self.logger.info( "Garmin DeviceManager: Removed saved devices file.")
+        }
+        catch let error {
+            self.logger.error("Failed to remove devices file with error: \(error)")
+        }
+    }
     
     func restoreDevicesFromFileSystem() {
         do {
@@ -120,7 +136,7 @@ class DeviceManager: NSObject {
     }
     
     func devicesFilePath() -> String {
-        var paths = NSSearchPathForDirectoriesInDomains(.applicationSupportDirectory, .userDomainMask, true)
+        let paths = NSSearchPathForDirectoriesInDomains(.applicationSupportDirectory, .userDomainMask, true)
         let appSupportDirectory = URL(fileURLWithPath: paths[0])
         // list all files in the appSupportDirectory
         let fileManager = FileManager.default

@@ -73,11 +73,17 @@ public final class GarminService: Service {
     public func completeDelete() {
         //try! KeychainManager().setLogglyCustomerToken()
         self.logger.info("GarminService.completeDelete")
+        //delete selected device from user defaults
+        self.removeGarminDeviceFromStorage()
+        self.logger.info( "GarminService.completeDelete - device removed from storage")
+        
         //serviceDelegate?.serviceWantsDeletion(self)
         stateDelegate?.pluginWantsDeletion(self)
     }
     
-    
+    private func removeGarminDeviceFromStorage() {
+        UserDefaults.standard.removeObject(forKey: "activeGarminDeviceUUID")
+    }
     private func restoreGarminDevice() {
         //restore previously active device using the uuid from stored user defaults
         if let savedUUIDString = UserDefaults.standard.string(forKey: "activeGarminDeviceUUID"),
