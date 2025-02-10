@@ -12,6 +12,7 @@ import LoopKitUI
 import GarminServiceKit
 import ConnectIQ
 import os
+import HealthKit
 
 extension Notification.Name {
     static let didReceiveURL = Notification.Name("didReceiveURL")
@@ -209,7 +210,7 @@ final class GarminServiceTableViewController: UITableViewController, UITextField
         switch Section(rawValue: indexPath.section)! {
         case .garminconnect:
             let cell = tableView.dequeueReusableCell(withIdentifier: "StandardCellIdentifier") ?? UITableViewCell(style: .default, reuseIdentifier: "StandardCellIdentifier")
-            cell.textLabel?.text = "Refresh Garmin Devices"
+            cell.textLabel?.text = "Import Garmin Devices"
             self.logger.debug("GarminServiceTableViewController: Button added")
             return cell
         case .garmindevices:
@@ -243,8 +244,21 @@ final class GarminServiceTableViewController: UITableViewController, UITextField
             }
             return cell
         case .sendtestdata:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "StandardCellIdentifier") ?? UITableViewCell(style: .default, reuseIdentifier: "StandardCellIdentifier")
+            let cell = tableView.dequeueReusableCell(withIdentifier: "StandardCellIdentifier") ??
+                UITableViewCell(style: .default, reuseIdentifier: "StandardCellIdentifier")
             cell.textLabel?.text = "Send Test Data"
+            
+            // Default to disabled state
+            cell.isUserInteractionEnabled = false
+            cell.textLabel?.textColor = .secondaryLabel // More appropriate for disabled text
+            
+            if let activeDevice = self.service.app?.device,
+               ConnectIQ.sharedInstance().getDeviceStatus(activeDevice) == .connected {
+                // Enable cell if a device is connected
+                cell.isUserInteractionEnabled = true
+                cell.textLabel?.textColor = .label
+            }
+
             self.logger.debug("GarminServiceTableViewController: Button added")
             return cell
         case .deleteService:
@@ -272,16 +286,10 @@ final class GarminServiceTableViewController: UITableViewController, UITextField
                 self.logger.debug("Selected device: \(device)")
             }
             tableView.reloadData()
-        case .sendtestdata:
             
-            if let app = self.service.app {
-                self.logger.debug("Sending messages: Selected \(app.device)")
-                let timestamp = Date().timeIntervalSince1970
-                let data = ["glucose": 111, "trend": 111, "timestamp": Int(timestamp)] as [String : Any]
-                sendMessage(data, app: app)
-            } else {
-                self.logger.debug("Tried sending test data but service has no active device")
-            }
+        case .sendtestdata:
+            self.sendLatestBloodGlucose()
+            tableView.deselectRow(at: indexPath, animated: true)
         case .deleteService:
             confirmDeletion {
                 tableView.deselectRow(at: indexPath, animated: true)
@@ -323,19 +331,57 @@ final class GarminServiceTableViewController: UITableViewController, UITextField
     
     //MARK: - Garmin Specific -
     
-    func sendMessage(_ message: [String: Any], app: IQApp) {
+    func sendMessage(_ message: [String: Any]) {
         //We need to send a message to the garmin device using the ConnectIQ framework. We create a message object with the message data and the app object. We then send the message using the ConnectIQ send message method. We also register for the message progress and completion events
-        
         self.logger.debug("Sending message: \(message)")
         
-        ConnectIQ.sharedInstance().sendMessage(message, to: app, progress: {(sentBytes: UInt32, totalBytes: UInt32) -> Void in
-            let percent: Double = 100.0 * Double(sentBytes / totalBytes)
-            self.logger.debug("Progress: \(percent)% sent \(sentBytes) bytes of \(totalBytes)")
-            }, completion: {(result: IQSendMessageResult) -> Void in
-                self.logger.debug("Send message finished with result: \(NSStringFromSendMessageResult(result))")
-        })
+        if let app = self.service.app {
+            self.logger.debug("Sending messages: Selected \(app.device)")
+            
+            ConnectIQ.sharedInstance().sendMessage(message, to: app, progress: {(sentBytes: UInt32, totalBytes: UInt32) -> Void in
+                let percent: Double = 100.0 * Double(sentBytes / totalBytes)
+                self.logger.debug("Progress: \(percent)% sent \(sentBytes) bytes of \(totalBytes)")
+                }, completion: {(result: IQSendMessageResult) -> Void in
+                    self.logger.debug("Send message finished with result: \(NSStringFromSendMessageResult(result))")
+            })
+        } else {
+            self.logger.warning("Tried sending test data but service has no active device")
+        }
+        
     }
+
     
+    private func sendLatestBloodGlucose(){
+        self.logger.info("fetchLatestBloodGlucose")
+        
+        // Define the sample type for blood glucose
+        guard let bloodGlucoseType = HKObjectType.quantityType(forIdentifier: .bloodGlucose) else {
+            // Handle the case when the blood glucose type is not available
+            self.logger.error("Blood glucose type is not available")
+            return
+        }
+
+        // Create a query to fetch the latest blood glucose sample
+        let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierStartDate, ascending: false)
+        let query = HKSampleQuery(sampleType: bloodGlucoseType, predicate: nil, limit: 1, sortDescriptors: [sortDescriptor]) { (query, samples, error) in
+            if let error = error {
+                self.logger.error("Error fetching blood glucose data: \(error.localizedDescription)")
+                return
+            }
+            guard let samples = samples as? [HKQuantitySample], let firstSample = samples.first else {
+                self.logger.info("No blood glucose samples available")
+                return
+            }
+            self.logger.info("Fetched latest blood glucose sample \(firstSample)")
+            
+            // convert to data package
+            let bloodGlucose = firstSample.quantity.doubleValue(for: HKUnit(from: "mg/dL"))
+            let timestamp = firstSample.startDate.timeIntervalSince1970
+            let message = ["glucose": bloodGlucose, "trend": -1.0, "timestamp": Int(timestamp)] as [String : Any]
+            self.sendMessage(message)
+        }
+        HKHealthStore().execute(query)
+    }
     
 }
 
