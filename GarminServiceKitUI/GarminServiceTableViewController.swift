@@ -196,13 +196,13 @@ final class GarminServiceTableViewController: UITableViewController, UITextField
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch Section(rawValue: section)! {
         case .garminconnect:
-            return "Connect Garmin Device"
+            return "Step1: Import Available Devices"
         case .garmindevices:
-            return "Available Garmin Devices"
+            return "Step2: Select Garmin Devices"
         case .deleteService:
             return "Delete Service Section" // Use an empty string for more dramatic spacing
         case .sendtestdata:
-            return "Send Test Data"
+            return "Step 3: Test"
         }
     }
     
@@ -219,6 +219,7 @@ final class GarminServiceTableViewController: UITableViewController, UITextField
             let cell = self.tableView.dequeueReusableCell(withIdentifier: "iqdevicecell", for: indexPath) as! DeviceTableViewCell
             cell.nameLabel.text! = device.friendlyName
             cell.modelLabel.text! = device.modelName
+            cell.statusLabel.textColor = .gray
             switch status {
                 case .invalidDevice:
                     cell.statusLabel.text! = "Invalid Device"
@@ -234,7 +235,7 @@ final class GarminServiceTableViewController: UITableViewController, UITextField
                     cell.enabled = false
                 case .connected:
                     cell.statusLabel.text! = "Connected"
-                    cell.enabled = true
+                    cell.statusLabel.textColor = .black
             }
             //if current active device has same UUID, then mark this row as selected
             if let activeDevice = self.service.app?.device {
@@ -246,7 +247,7 @@ final class GarminServiceTableViewController: UITableViewController, UITextField
         case .sendtestdata:
             let cell = tableView.dequeueReusableCell(withIdentifier: "StandardCellIdentifier") ??
                 UITableViewCell(style: .default, reuseIdentifier: "StandardCellIdentifier")
-            cell.textLabel?.text = "Send Test Data"
+            cell.textLabel?.text = "Send Latest Glucose (HealthKit)"
             
             // Default to disabled state
             cell.isUserInteractionEnabled = false
